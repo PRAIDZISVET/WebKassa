@@ -1,13 +1,17 @@
 package by.maiseyeu.webkassa.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
+@ToString(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity{
+public class User extends BaseEntity <Long>{
 
     @Column(name = "name")
     private String name;

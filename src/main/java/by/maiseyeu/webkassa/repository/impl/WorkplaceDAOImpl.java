@@ -1,6 +1,6 @@
 package by.maiseyeu.webkassa.repository.impl;
 
-import by.maiseyeu.webkassa.model.Role;
+import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.repository.BaseDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository ("roleDAOBean")
-public class RoleDAOImpl implements BaseDAO<Long,Role> {
+@Repository("workplaceDAOBean")
+public class WorkplaceDAOImpl implements BaseDAO<Long, Workplace> {
 
     private SessionFactory sessionFactory;
 
@@ -19,34 +19,30 @@ public class RoleDAOImpl implements BaseDAO<Long,Role> {
         this.sessionFactory = sessionFactory;
     }
 
-    @Override
-    public void save(Role role) {
-
-    }
 
     @Override
-    public void update(Role role) {
-
-    }
-
-    @Override
-    public void delete(Role role) {
-
-    }
-
-//    @Override
-//    public Role getById(Long id) {
-//        return null;
-//    }
-
-    @Override
-    public Role getById(Long id) {
+    public void save(Workplace workplace) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Role.class, id);
+        session.persist(workplace);
     }
 
     @Override
-    public List<Role> getAll() {
+    public void update(Workplace workplace) {
+
+    }
+
+    @Override
+    public void delete(Workplace workplace) {
+
+    }
+
+    @Override
+    public Workplace getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<Workplace> getAll() {
         return null;
     }
 }

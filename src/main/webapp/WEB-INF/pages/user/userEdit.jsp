@@ -24,17 +24,27 @@
     <c:url value="/editUser" var="var"/>
 </c:if>
 <form action="${var}" method="POST">
+    <c:if test="${empty user.login}">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <label for="login">Login</label>
+        <input type="text" name="login" id="login">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <label for="role_id">Role_id</label>
+        <input type="text" name="role_id" id="role_id">
+    </c:if>
     <c:if test="${!empty user.login}">
         <input type="hidden" name="id" value="${user.id}">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="${user.name}">
+        <label for="login">Login</label>
+        <input type="text" name="login" id="login" value="${user.login}">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" value="${user.password}">
+        <label for="role_id">Role_id</label>
+        <input type="text" name="role_id" id="role_id" value="${user.role.id}">
     </c:if>
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name">
-    <label for="login">Login</label>
-    <input type="text" name="login" id="login">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-    <label for="role_id">Role_id</label>
-    <input type="text" name="role_id" id="role_id">
     <c:if test="${empty user.login}">
         <input type="submit" value="Add new user">
     </c:if>

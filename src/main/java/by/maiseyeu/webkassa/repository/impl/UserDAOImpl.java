@@ -4,6 +4,7 @@ import by.maiseyeu.webkassa.model.User;
 import by.maiseyeu.webkassa.repository.UserDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -93,7 +94,17 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User getByLogin(String login) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(User.class, login);
+//        return session.get(User.class, login);
+        Query<User> query = session.createQuery("SELECT u from User u where login=:userLogin");
+//        return session.createQuery("select e from User e where e.login = :login",User.class);
+        query.setParameter("userLogin",login);
+//        query.executeUpdate();
+//               session.createQuery("select e from Employee e where e.firstName = :firstName", Employee.class)
+        return query.uniqueResult();
+// Query<Cinema> query = session.createQuery("delete from Cinema where id=:cinemaId");
+//        query.setParameter("cinemaId",id);
+//        query.executeUpdate();
+
     }
 
 //    @Override

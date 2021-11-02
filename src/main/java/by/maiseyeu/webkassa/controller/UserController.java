@@ -4,12 +4,10 @@ import by.maiseyeu.webkassa.model.Role;
 import by.maiseyeu.webkassa.model.User;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.UserServiceDAO;
-import by.maiseyeu.webkassa.service.impl.UserSericeImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -34,7 +32,7 @@ public class UserController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView toLoginPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
+        modelAndView.setViewName("user/login");
         return modelAndView;
     }
 
@@ -50,25 +48,26 @@ public class UserController {
                 } else if (user.getRole().getId() == 2) {
                     modelAndView.setViewName("redirect:/cashier");
                 }
+            } else {
+                modelAndView.setViewName("error/wrongPass");
             }
         } else {
-            modelAndView.setViewName("unregisted");
+            modelAndView.setViewName("error/unregisted");
         }
-//        modelAndView.setViewName("login");
         return modelAndView;
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public ModelAndView adminPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("adminPage");
+        modelAndView.setViewName("user/adminMain");
         return modelAndView;
     }
 
     @RequestMapping(value = "/cashier", method = RequestMethod.GET)
     public ModelAndView cashierPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("cashierPage");
+        modelAndView.setViewName("user/cashierMain");
         return modelAndView;
     }
 
@@ -76,7 +75,7 @@ public class UserController {
     public ModelAndView getUserEditPage(@PathVariable("id") Long id) {
         User user = (User) userService.getById(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("userEditPage");
+        modelAndView.setViewName("user/userEdit");
         modelAndView.addObject("user", user);
         return modelAndView;
     }
@@ -95,7 +94,7 @@ public class UserController {
     public ModelAndView userList() {
         List<User> users = userService.getAll();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("userListPage");
+        modelAndView.setViewName("user/userList");
         modelAndView.addObject("userList", users);
         return modelAndView;
     }
@@ -103,7 +102,7 @@ public class UserController {
     @RequestMapping(value = "/addUser", method = RequestMethod.GET)
     public ModelAndView addUser() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("userEditPage");
+        modelAndView.setViewName("user/userEdit");
         return modelAndView;
     }
 

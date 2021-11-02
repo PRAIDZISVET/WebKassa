@@ -25,3 +25,18 @@ create table roles
 create unique index roles_name_uindex
     on roles (name);
 
+
+
+create table workplaces
+(
+    id bigserial
+        constraint workplaces_pk
+            primary key,
+    code bigint not null,
+    name varchar(50),
+    address varchar(100)
+);
+
+create unique index workplaces_code_uindex
+    on workplaces (code);
+
