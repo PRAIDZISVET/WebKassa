@@ -13,6 +13,8 @@
 </head>
 <body>
     Hello admin!
-    <h2><a href="/userList">List of users</a></h2>
+    <h2><a href="/userList">Users</a></h2>
+    <h2><a href="/workplace/list">Workplaces</a></h2>
+    <h2><a href="/currency/list">Currencies</a></h2>
 </body>
 </html>
