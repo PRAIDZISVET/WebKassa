@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Service
+@Service("roleService")
 public class RoleServiceImpl implements ServiceDAO<Long, Role> {
 
     private BaseDAO <Long,Role> roleDAO;

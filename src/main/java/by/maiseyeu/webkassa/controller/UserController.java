@@ -5,6 +5,7 @@ import by.maiseyeu.webkassa.model.User;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.UserServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,6 +26,7 @@ public class UserController {
     }
 
     @Autowired
+    @Qualifier("roleService")
     public void setRoleService(ServiceDAO<Long, Role> roleService) {
         this.roleService = roleService;
     }
@@ -117,7 +119,7 @@ public class UserController {
     }
 
     @RequestMapping(value="/deleteUser/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteFilm(@PathVariable("id") Long id) {
+    public ModelAndView deleteUser(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/userList");
         User user = (User) userService.getById(id);

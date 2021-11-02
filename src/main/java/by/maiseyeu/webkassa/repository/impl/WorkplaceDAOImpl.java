@@ -27,22 +27,27 @@ public class WorkplaceDAOImpl implements BaseDAO<Long, Workplace> {
     }
 
     @Override
-    public void update(Workplace workplace) {
-
+    public void update (Workplace workplace) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(workplace);
     }
 
     @Override
     public void delete(Workplace workplace) {
-
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(workplace);
     }
 
     @Override
     public Workplace getById(Long id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Workplace.class, id);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Workplace> getAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Workplace").list();
     }
 }

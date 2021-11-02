@@ -6,10 +6,11 @@ import by.maiseyeu.webkassa.service.ServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+@Service("workplaceService")
 public class WorkplaceServiceImpl implements ServiceDAO<Long, Workplace> {
 
     private BaseDAO<Long,Workplace> workplaceDAO;
@@ -22,27 +23,32 @@ public class WorkplaceServiceImpl implements ServiceDAO<Long, Workplace> {
     }
 
     @Override
+    @Transactional
     public void save(Workplace workplace) {
         workplaceDAO.save(workplace);
     }
 
     @Override
+    @Transactional
     public void update(Workplace workplace) {
-
+    workplaceDAO.update(workplace);
     }
 
     @Override
+    @Transactional
     public void delete(Workplace workplace) {
-
+    workplaceDAO.delete(workplace);
     }
 
     @Override
+    @Transactional
     public Workplace getById(Long id) {
-        return null;
+      return workplaceDAO.getById(id);
     }
 
     @Override
+    @Transactional
     public List<Workplace> getAll() {
-        return null;
+        return workplaceDAO.getAll();
     }
 }
