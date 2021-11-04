@@ -20,6 +20,7 @@
         <th>iso</th>
         <th>name</th>
         <th>isactive</th>
+        <th>action</th>
     </tr>
     <c:forEach var="currency" items="${currencyList}">
         <tr>

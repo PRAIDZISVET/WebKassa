@@ -40,3 +40,17 @@ create table workplaces
 create unique index workplaces_code_uindex
     on workplaces (code);
 
+create table opers
+(
+    id bigserial not null,
+    name varchar(50) not null,
+    isactive boolean not null
+);
+
+create unique index opers_id_uindex
+    on opers (id);
+
+alter table opers
+    add constraint opers_pk
+        primary key (id);
+

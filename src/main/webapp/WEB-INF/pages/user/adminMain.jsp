@@ -16,5 +16,7 @@
     <h2><a href="/userList">Users</a></h2>
     <h2><a href="/workplace/list">Workplaces</a></h2>
     <h2><a href="/currency/list">Currencies</a></h2>
+    <h2><a href="/oper/list">Opers</a></h2>
+    <h2><a href="/rate/list">Rates</a></h2>
 </body>
 </html>
