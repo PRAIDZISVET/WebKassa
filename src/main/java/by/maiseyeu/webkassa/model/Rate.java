@@ -1,10 +1,9 @@
 package by.maiseyeu.webkassa.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -16,15 +15,18 @@ import java.time.LocalDateTime;
 @Table(name = "rates")
 public class Rate extends BaseEntity<Long>{
 
-    @Column(name = "curr_in_id")
-    private Integer currInId;
+    @ManyToOne
+    @JoinColumn(name = "curr_in_id")
+    private Currency currIn;
 
-    @Column(name = "curr_out_id")
-    private Integer currOutId;
+    @ManyToOne
+    @JoinColumn(name = "curr_out_id")
+    private Currency currOut;
 
     @Column(name = "value")
     private double value;
 
     @Column(name = "set_date_time")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime setDateTime;
 }

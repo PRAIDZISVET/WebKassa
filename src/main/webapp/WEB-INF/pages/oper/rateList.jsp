@@ -25,8 +25,8 @@
     <c:forEach var="rate" items="${rateList}">
         <tr>
             <td>${rate.id}</td>
-            <td>${rate.currInId}</td>
-            <td>${rate.currOutId}</td>
+            <td>${rate.currIn.iso}</td>
+            <td>${rate.currOut.iso}</td>
             <td>${rate.value}</td>
             <td>${rate.setDateTime}</td>
             <td>
