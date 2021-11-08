@@ -1,5 +1,6 @@
 package by.maiseyeu.webkassa.controller;
 
+import by.maiseyeu.webkassa.handler.GlobalDateBinder;
 import by.maiseyeu.webkassa.model.Currency;
 import by.maiseyeu.webkassa.model.Rate;
 import by.maiseyeu.webkassa.model.Workplace;
@@ -11,7 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 @RequestMapping("/rate")
@@ -56,6 +62,7 @@ public class RateController {
         modelAndView.setViewName("redirect:/rate/list");
         rate.setCurrIn(currencyService.getById(currIn_id));
         rate.setCurrOut(currencyService.getById(currOut_id));
+        rate.setSetDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
         rateService.save(rate);
         return modelAndView;
     }
@@ -77,6 +84,7 @@ public class RateController {
         modelAndView.setViewName("redirect:/rate/list");
         rate.setCurrIn(currencyService.getById(currIn_id));
         rate.setCurrOut(currencyService.getById(currOut_id));
+        rate.setSetDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
         rateService.update(rate);
         return modelAndView;
     }

@@ -33,6 +33,8 @@
         <input type="password" name="password" id="password">
         <label for="role_id">Role_id</label>
         <input type="text" name="role_id" id="role_id">
+        <label for="workplace_id">Workplace_id</label>
+        <input type="text" name="workplace_id" id="workplace_id">
     </c:if>
     <c:if test="${!empty user.login}">
         <input type="hidden" name="id" value="${user.id}">
@@ -44,6 +46,8 @@
         <input type="password" name="password" id="password" value="${user.password}">
         <label for="role_id">Role_id</label>
         <input type="text" name="role_id" id="role_id" value="${user.role.id}">
+        <label for="workplace_id">Workplace_id</label>
+        <input type="text" name="workplace_id" id="workplace_id" value="${user.workplace.id}">
     </c:if>
     <c:if test="${empty user.login}">
         <input type="submit" value="Add new user">

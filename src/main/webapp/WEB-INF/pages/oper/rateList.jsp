@@ -31,6 +31,7 @@
             <td>${rate.setDateTime}</td>
             <td>
                 <a href="/rate/edit/${rate.id}">edit</a>
+                <a href="/rate/delete/${rate.id}">delete</a>
             </td>
         </tr>
     </c:forEach>

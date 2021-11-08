@@ -31,26 +31,28 @@
         <input type="text" name="currout_id" id="currout_id">
         <label for="value">Value</label>
         <input type="number" step=any name="value" id="value">
-        <label for="setdatetime">SetDateTime</label>
-        <input type="date" name="setdatetime" id="setdatetime">
-    </c:if>
-    <c:if test="${!empty rate.id}">
-        <input type="hidden" name="id" value="${rate.id}">
-        <label for="currin_id">CurrIn</label>
-        <input type="text" name="currin_id" id="currin_id" value="${rate.currIn.id}">
-        <label for="currout_id">CurrOut</label>
-        <input type="text" name="currout_id" id="currout_id" value="${rate.currOut.id}">
-        <label for="value">Value</label>
-        <input type="number" step=any name="value" id="value" value="${rate.value}">
-        <label for="setdatetime">SetDateTime</label>
-        <input type="datetime-local" name="setdatetime" id="setdatetime" value="${rate.setDateTime}">
-    </c:if>
-    <c:if test="${empty rate.id}">
-        <input type="submit" value="Set new rate">
-    </c:if>
-    <c:if test="${!empty rate.id}">
-        <input type="submit" value="Edit rate">
-    </c:if>
-</form>
-</body>
-</html>
+ <%--          <label for="setdatetime">SetDateTime</label>
+                <input type="datetime-local" name="setdatetime" id="setdatetime">
+--%>
+            </c:if>
+            <c:if test="${!empty rate.id}">
+                <input type="hidden" name="id" value="${rate.id}">
+                <label for="currin_id">CurrIn</label>
+                <input type="text" name="currin_id" id="currin_id" value="${rate.currIn.id}">
+                <label for="currout_id">CurrOut</label>
+                <input type="text" name="currout_id" id="currout_id" value="${rate.currOut.id}">
+                <label for="value">Value</label>
+                <input type="number" step=any name="value" id="value" value="${rate.value}">
+<%--                <label for="setdatetime">SetDateTime</label>
+                <input type="datetime-local" name="setdatetime" id="setdatetime" value="${rate.setDateTime}">
+--%>
+            </c:if>
+            <c:if test="${empty rate.id}">
+                <input type="submit" value="Set new rate">
+            </c:if>
+            <c:if test="${!empty rate.id}">
+                <input type="submit" value="Edit rate">
+            </c:if>
+        </form>
+        </body>
+        </html>

@@ -2,6 +2,7 @@ package by.maiseyeu.webkassa.controller;
 
 import by.maiseyeu.webkassa.model.Role;
 import by.maiseyeu.webkassa.model.User;
+import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.UserServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,10 @@ public class UserController {
 
     private UserServiceDAO  userService;
     private ServiceDAO<Long,Role> roleService;
+    private ServiceDAO<Long, Workplace> workplaceService;
 
     @Autowired
+    @Qualifier("userService")
     public void setUserService(UserServiceDAO userService) {
         this.userService = userService;
     }
@@ -29,6 +32,12 @@ public class UserController {
     @Qualifier("roleService")
     public void setRoleService(ServiceDAO<Long, Role> roleService) {
         this.roleService = roleService;
+    }
+
+    @Autowired
+    @Qualifier("workplaceService")
+    public void setWorkplaceService(ServiceDAO<Long, Workplace> workplaceService) {
+        this.workplaceService = workplaceService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -84,9 +93,11 @@ public class UserController {
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public ModelAndView userEdit(@ModelAttribute("user") User user,
-                                 @RequestParam("role_id") Long id) {
+                                 @RequestParam("role_id") Long id,
+                                 @RequestParam("workplace_id") Long workplace_id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/userList");
+        user.setWorkplace(workplaceService.getById(workplace_id));
         user.setRole(roleService.getById(id));
         userService.update(user);
         return modelAndView;
@@ -110,10 +121,12 @@ public class UserController {
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user") User user,
-                                @RequestParam("role_id") Long id) {
+                                @RequestParam("role_id") Long role_id,
+                                @RequestParam("workplace_id") Long workplace_id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/userList");
-        user.setRole(roleService.getById(id));
+        user.setRole(roleService.getById(role_id));
+        user.setWorkplace(workplaceService.getById(workplace_id));
         userService.save(user);
         return modelAndView;
     }
@@ -122,7 +135,7 @@ public class UserController {
     public ModelAndView deleteUser(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/userList");
-        User user = (User) userService.getById(id);
+        User user = userService.getById(id);
         userService.delete(user);
         return modelAndView;
     }

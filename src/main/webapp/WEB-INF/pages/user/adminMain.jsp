@@ -18,5 +18,8 @@
     <h2><a href="/currency/list">Currencies</a></h2>
     <h2><a href="/oper/list">Opers</a></h2>
     <h2><a href="/rate/list">Rates</a></h2>
+    <h2><a href="/workshift/list">Workshifts</a></h2>
+    <h2><a href="/rest/list">Rests</a></h2>
+    <h2><a href="/receipt/list">Receipts</a></h2>
 </body>
 </html>
