@@ -93,12 +93,12 @@ public class UserController {
 
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public ModelAndView userEdit(@ModelAttribute("user") User user,
-                                 @RequestParam("role_id") Long id,
+                                 @RequestParam("role_id") Long role_id,
                                  @RequestParam("workplace_id") Long workplace_id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/userList");
         user.setWorkplace(workplaceService.getById(workplace_id));
-        user.setRole(roleService.getById(id));
+        user.setRole(roleService.getById(role_id));
         userService.update(user);
         return modelAndView;
     }

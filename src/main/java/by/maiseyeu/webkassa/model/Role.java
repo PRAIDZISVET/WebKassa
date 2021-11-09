@@ -4,11 +4,11 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
-@ToString(exclude = "users")
-@EqualsAndHashCode(of = "id")
+@ToString(callSuper = true, exclude = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -19,5 +19,5 @@ public class Role extends BaseEntity <Long> {
     private String name;
 
     @OneToMany(mappedBy = "role")
-    private List<User> users;
+    private Set<User> users;
 }

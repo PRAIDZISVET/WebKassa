@@ -9,8 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(exclude = "receipts")
-@EqualsAndHashCode(of = "id")
+@ToString(callSuper = true, exclude = "receipts")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -18,17 +17,17 @@ import java.util.List;
 public class Rate extends BaseEntity<Long>{
 
     @ManyToOne
-    @JoinColumn(name = "curr_in_id", nullable = false)
+    @JoinColumn(name = "curr_in_id")
     private Currency currIn;
 
     @ManyToOne
-    @JoinColumn(name = "curr_out_id", nullable = false)
+    @JoinColumn(name = "curr_out_id")
     private Currency currOut;
 
     @Column(name = "value")
     private double value;
 
-    @Column(name = "set_date_time", nullable = false)
+    @Column(name = "set_date_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 //    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime setDateTime;

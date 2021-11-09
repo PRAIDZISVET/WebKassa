@@ -7,10 +7,9 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(exclude = {"workplace","workshifts"})
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity <Long>{
@@ -18,21 +17,21 @@ public class User extends BaseEntity <Long>{
     @Column(name = "name")
     private String name;
 
-    @Column(name = "login", nullable = false)
+    @Column(name = "login")
     private String login;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
+    @JoinColumn(name = "role_id")
     private Role role;
 
     @ManyToOne
-    @JoinColumn(name = "workplace_id", nullable = false)
+    @JoinColumn(name = "workplace_id")
     private Workplace workplace;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<Workshift> workshifts;
 
 }

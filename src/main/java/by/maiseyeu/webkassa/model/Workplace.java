@@ -7,15 +7,14 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(exclude = {"users","workshifts"})
-@EqualsAndHashCode(of = "id")
+@ToString(callSuper = true, exclude = {"users","workshifts"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "workplaces")
 public class Workplace extends BaseEntity<Long>{
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code")
     private Long code;
 
     @Column(name = "name")

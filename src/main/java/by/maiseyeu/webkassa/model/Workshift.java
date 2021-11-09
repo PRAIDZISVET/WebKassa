@@ -5,34 +5,34 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
-@ToString(exclude = {"receipts","rests"})
-@EqualsAndHashCode(of = "id")
+@ToString(callSuper = true, exclude = {"receipts","rests"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "workshifts")
 public class Workshift extends BaseEntity<Long> {
 
-    @Column(name = "open_date_time", nullable = false)
+    @Column(name = "open_date_time")
     private LocalDateTime openDateTime;
 
     @Column(name = "close_date_time")
     private LocalDateTime closeDateTime;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "workplace_id", nullable = false)
+    @JoinColumn(name = "workplace_id")
     private Workplace workplace;
 
     @OneToMany(mappedBy = "workshift")
     private List<Receipt> receipts;
 
     @OneToMany(mappedBy = "workshift")
-    private List<Rest> rests;
+    private Set<Rest> rests;
 }

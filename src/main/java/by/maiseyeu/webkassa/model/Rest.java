@@ -7,8 +7,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-@ToString
-@EqualsAndHashCode(of = "id")
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -17,11 +16,11 @@ public class Rest extends BaseEntity<Long> {
 
 
     @OneToOne
-    @JoinColumn(name = "curr_id", nullable = false)
+    @JoinColumn(name = "curr_id")
     private Currency currency;
 
     @ManyToOne
-    @JoinColumn(name = "workshift_id", nullable = false)
+    @JoinColumn(name = "workshift_id")
     private  Workshift workshift;
 
     @Column(name = "sum")

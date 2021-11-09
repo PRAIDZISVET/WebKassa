@@ -8,8 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@ToString
-@EqualsAndHashCode(of = "id")
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -17,18 +16,18 @@ import java.time.LocalDateTime;
 public class Receipt extends BaseEntity<Long>{
 
     @ManyToOne
-    @JoinColumn(name = "oper_id", nullable = false)
+    @JoinColumn(name = "oper_id")
     private Oper oper;
 
     @ManyToOne
-    @JoinColumn(name = "workshift_id", nullable = false)
+    @JoinColumn(name = "workshift_id")
     private Workshift workshift;
 
     @ManyToOne
     @JoinColumn(name = "rate_id")
     private  Rate rate;
 
-    @Column(name = "date_time", nullable = false)
+    @Column(name = "date_time")
     private LocalDateTime dateTime;
 
     @Column(name = "sum")

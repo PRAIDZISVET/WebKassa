@@ -7,18 +7,17 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(exclude = {"ratesIn","ratesOut", "rest"})
-@EqualsAndHashCode(of = "id")
+@ToString(callSuper = true, exclude = {"ratesIn","ratesOut", "rest"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "currencies")
 public class Currency extends BaseEntity<Long>{
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code")
     private Integer code;
 
-    @Column(name = "iso", nullable = false)
+    @Column(name = "iso")
     private String iso;
 
     @Column(name = "name")

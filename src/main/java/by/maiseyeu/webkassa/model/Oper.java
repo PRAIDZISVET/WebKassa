@@ -7,8 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(exclude = "receipts")
-@EqualsAndHashCode(of = "id")
+@ToString(callSuper = true, exclude = "receipts")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
