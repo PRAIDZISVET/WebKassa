@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(callSuper = true, exclude = "receipts")
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,6 +20,7 @@ public class Oper extends BaseEntity<Long> {
     @Column(name = "isactive")
     private boolean isActive;
 
-    @OneToMany(mappedBy = "oper")
+    @OneToMany(mappedBy = "oper", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private List<Receipt> receipts;
 }

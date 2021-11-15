@@ -27,11 +27,13 @@ public class User extends BaseEntity <Long>{
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @ManyToOne
-    @JoinColumn(name = "workplace_id")
+    @OneToOne
+    @JoinColumn(name="workplace_id", unique = true)
+    @ToString.Exclude
     private Workplace workplace;
 
-    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private List<Workshift> workshifts;
 
 }

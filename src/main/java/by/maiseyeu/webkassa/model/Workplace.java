@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(callSuper = true, exclude = {"users","workshifts"})
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,10 +23,12 @@ public class Workplace extends BaseEntity<Long>{
     @Column(name = "address")
     private String address;
 
-    @OneToMany(mappedBy = "workplace")
-    private List<User> users;
+    @OneToOne(mappedBy="workplace", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
+    private User user;
 
-    @OneToMany(mappedBy = "workplace")
+    @OneToMany(mappedBy = "workplace", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private List<Workshift> workshifts;
 
 }

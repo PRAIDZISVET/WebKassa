@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString(callSuper = true, exclude = "users")
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -19,5 +19,6 @@ public class Role extends BaseEntity <Long> {
     private String name;
 
     @OneToMany(mappedBy = "role")
+    @ToString.Exclude
     private Set<User> users;
 }

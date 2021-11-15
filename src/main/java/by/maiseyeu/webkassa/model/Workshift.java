@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString(callSuper = true, exclude = {"receipts","rests"})
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -30,9 +30,11 @@ public class Workshift extends BaseEntity<Long> {
     @JoinColumn(name = "workplace_id")
     private Workplace workplace;
 
-    @OneToMany(mappedBy = "workshift")
+    @OneToMany(mappedBy = "workshift", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private List<Receipt> receipts;
 
-    @OneToMany(mappedBy = "workshift")
+    @OneToMany(mappedBy = "workshift", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private Set<Rest> rests;
 }

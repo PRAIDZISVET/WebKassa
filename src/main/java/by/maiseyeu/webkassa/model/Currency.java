@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(callSuper = true, exclude = {"ratesIn","ratesOut", "rest"})
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -26,13 +26,16 @@ public class Currency extends BaseEntity<Long>{
     @Column(name = "isactive")
     private boolean isActive;
 
-    @OneToMany(mappedBy = "currIn")
+    @OneToMany(mappedBy = "currIn", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private List<Rate> ratesIn;
 
-    @OneToMany(mappedBy = "currOut")
+    @OneToMany(mappedBy = "currOut", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private List<Rate> ratesOut;
 
-    @OneToOne(mappedBy = "currency")
+    @OneToOne(mappedBy = "currency", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private Rest rest;
 
 }

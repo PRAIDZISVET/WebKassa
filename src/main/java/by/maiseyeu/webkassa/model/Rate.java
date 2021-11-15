@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(callSuper = true, exclude = "receipts")
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -32,6 +32,7 @@ public class Rate extends BaseEntity<Long>{
 //    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime setDateTime;
 
-    @OneToMany(mappedBy = "rate")
+    @OneToMany(mappedBy = "rate", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
     private List<Receipt> receipts;
 }
