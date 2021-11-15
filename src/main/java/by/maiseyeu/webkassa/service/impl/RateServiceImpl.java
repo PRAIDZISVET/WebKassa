@@ -2,6 +2,7 @@ package by.maiseyeu.webkassa.service.impl;
 
 import by.maiseyeu.webkassa.model.Rate;
 import by.maiseyeu.webkassa.repository.RateDAO;
+import by.maiseyeu.webkassa.repository.RateRepository;
 import by.maiseyeu.webkassa.service.RateServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,47 +14,90 @@ import java.util.List;
 @Service ("rateService")
 public class RateServiceImpl implements RateServiceDAO {
 
-    private RateDAO rateDAO;
+//    private RateDAO rateDAO;
+//
+//    @Autowired
+//    @Qualifier("rateDAOBean")
+//    public void setRateDAO(RateDAO rateDAO) {
+//        this.rateDAO = rateDAO;
+//    }
+
+    private RateRepository rateRepository;
 
     @Autowired
-    @Qualifier("rateDAOBean")
-    public void setRateDAO(RateDAO rateDAO) {
-        this.rateDAO = rateDAO;
+    public void setRateRepository(RateRepository rateRepository) {
+        this.rateRepository = rateRepository;
     }
 
+//    @Override
+//    @Transactional
+//    public void save(Rate rate) {
+//        rateDAO.save(rate);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void update(Rate rate) {
+//        rateDAO.update(rate);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void delete(Rate rate) {
+//        rateDAO.delete(rate);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public Rate getById(Long id) {
+//        return rateDAO.getById(id);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public List<Rate> getAll() {
+//        return rateDAO.getAll();
+//    }
+//
+//    @Override
+//    @Transactional
+//    public Rate getByCurrCodes(Integer currIn, Integer currOut) {
+//        return rateDAO.getByCurrCodes(currIn,currOut);
+//    }
+
     @Override
-    @Transactional
+//    @Transactional
     public void save(Rate rate) {
-        rateDAO.save(rate);
+        rateRepository.saveAndFlush(rate);
     }
 
     @Override
-    @Transactional
+ //   @Transactional
     public void update(Rate rate) {
-        rateDAO.update(rate);
+        rateRepository.saveAndFlush(rate);
     }
 
     @Override
-    @Transactional
+  //  @Transactional
     public void delete(Rate rate) {
-        rateDAO.delete(rate);
+        rateRepository.delete(rate);
     }
 
     @Override
-    @Transactional
+ //   @Transactional
     public Rate getById(Long id) {
-        return rateDAO.getById(id);
+        return rateRepository.getById(id);
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public List<Rate> getAll() {
-        return rateDAO.getAll();
+        return rateRepository.findAll();
     }
 
-    @Override
-    @Transactional
-    public Rate getByCurrCodes(Integer currIn, Integer currOut) {
-        return rateDAO.getByCurrCodes(currIn,currOut);
-    }
+//    @Override
+ ////   @Transactional
+ //   public Rate getByCurrCodes(Integer currIn, Integer currOut) {
+ //       return rateRepository.getByCurrInAndCurrOut(currIn,currOut);
+ //   }
 }

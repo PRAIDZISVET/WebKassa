@@ -3,6 +3,7 @@ package by.maiseyeu.webkassa.service.impl;
 import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.model.Workshift;
 import by.maiseyeu.webkassa.repository.BaseDAO;
+import by.maiseyeu.webkassa.repository.WorkshiftRepository;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,42 +15,79 @@ import java.util.List;
 @Service("workshiftService")
 public class WorkshiftServiceImpl implements ServiceDAO <Long, Workshift> {
 
-    private BaseDAO<Long, Workshift> workshiftDAO;
+//    private BaseDAO<Long, Workshift> workshiftDAO;
+//
+//
+//    @Autowired
+//    @Qualifier("workshiftDAOBean")
+//    public void setWorkshiftDAO(BaseDAO<Long, Workshift> workshiftDAO) {
+//        this.workshiftDAO = workshiftDAO;
+//    }
 
+    private WorkshiftRepository workshiftRepository;
 
     @Autowired
-    @Qualifier("workshiftDAOBean")
-    public void setWorkshiftDAO(BaseDAO<Long, Workshift> workshiftDAO) {
-        this.workshiftDAO = workshiftDAO;
+    public void setWorkshiftRepository(WorkshiftRepository workshiftRepository) {
+        this.workshiftRepository = workshiftRepository;
     }
 
+    //    @Override
+//    @Transactional
+//    public void save(Workshift workshift) {
+//     workshiftDAO.save(workshift);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void update(Workshift workshift) {
+//        workshiftDAO.update(workshift);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void delete(Workshift workshift) {
+//workshiftDAO.delete(workshift);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public Workshift getById(Long id) {
+//        return workshiftDAO.getById(id);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public List<Workshift> getAll() {
+//        return workshiftDAO.getAll();
+//    }
+
     @Override
-    @Transactional
+ //   @Transactional
     public void save(Workshift workshift) {
-     workshiftDAO.save(workshift);
+        workshiftRepository.saveAndFlush(workshift);
     }
 
     @Override
-    @Transactional
+ //   @Transactional
     public void update(Workshift workshift) {
-        workshiftDAO.update(workshift);
+        workshiftRepository.saveAndFlush(workshift);
     }
 
     @Override
-    @Transactional
+ //   @Transactional
     public void delete(Workshift workshift) {
-workshiftDAO.delete(workshift);
+        workshiftRepository.delete(workshift);
     }
 
     @Override
-    @Transactional
+ //   @Transactional
     public Workshift getById(Long id) {
-        return workshiftDAO.getById(id);
+        return workshiftRepository.getById(id);
     }
 
     @Override
-    @Transactional
+ //   @Transactional
     public List<Workshift> getAll() {
-        return workshiftDAO.getAll();
+        return workshiftRepository.findAll();
     }
 }

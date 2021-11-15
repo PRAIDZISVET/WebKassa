@@ -3,6 +3,7 @@ package by.maiseyeu.webkassa.service.impl;
 import by.maiseyeu.webkassa.model.Oper;
 import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.repository.BaseDAO;
+import by.maiseyeu.webkassa.repository.OperRepository;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,41 +15,78 @@ import java.util.List;
 @Service("operService")
 public class OperServiceImpl implements ServiceDAO<Long,Oper> {
 
-    private BaseDAO<Long, Oper> operDAO;
+//    private BaseDAO<Long, Oper> operDAO;
+//
+//    @Autowired
+//    @Qualifier("operDAOBean")
+//    public void setOperDAO(BaseDAO<Long, Oper> operDAO) {
+//        this.operDAO = operDAO;
+//    }
+
+    private OperRepository operRepository;
 
     @Autowired
-    @Qualifier("operDAOBean")
-    public void setOperDAO(BaseDAO<Long, Oper> operDAO) {
-        this.operDAO = operDAO;
+    public void setOperRepository(OperRepository operRepository) {
+        this.operRepository = operRepository;
     }
 
-    @Override
-    @Transactional
-    public void save(Oper oper) {
-        operDAO.save(oper);
-    }
+    //    @Override
+//    @Transactional
+//    public void save(Oper oper) {
+//        operDAO.save(oper);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void update(Oper oper) {
+//        operDAO.update(oper);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void delete(Oper oper) {
+//
+//    }
+//
+//    @Override
+//    @Transactional
+//    public Oper getById(Long id) {
+//        return operDAO.getById(id);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public List<Oper> getAll() {
+//        return operDAO.getAll();
+//    }
+
+@Override
+//@Transactional
+public void save(Oper oper) {
+    operRepository.saveAndFlush(oper);
+}
 
     @Override
-    @Transactional
+ //   @Transactional
     public void update(Oper oper) {
-        operDAO.update(oper);
+        operRepository.saveAndFlush(oper);
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public void delete(Oper oper) {
 
     }
 
     @Override
-    @Transactional
+ //   @Transactional
     public Oper getById(Long id) {
-        return operDAO.getById(id);
+        return operRepository.getById(id);
     }
 
     @Override
-    @Transactional
+ //   @Transactional
     public List<Oper> getAll() {
-        return operDAO.getAll();
+        return operRepository.findAll();
     }
 }
