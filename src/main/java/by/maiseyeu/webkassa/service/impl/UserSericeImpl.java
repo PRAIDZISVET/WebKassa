@@ -8,6 +8,10 @@ import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.UserServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,7 +20,7 @@ import java.util.List;
 
 
 @Service("userService")
-public class UserSericeImpl implements UserServiceDAO {
+public class UserSericeImpl implements UserServiceDAO, UserDetailsService {
 
 // //   private UserDAO userDAO = new UserDAOImpl();
 
@@ -32,6 +36,13 @@ public class UserSericeImpl implements UserServiceDAO {
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     //        @Override
@@ -73,13 +84,14 @@ public class UserSericeImpl implements UserServiceDAO {
          @Override
  ////   @Transactional
     public void save(User user) {
-        userRepository.save(user);
+//             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userRepository.saveAndFlush(user);
     }
 
     @Override
 ////    @Transactional
     public void update(User user) {
-        userRepository.save(user);
+        userRepository.saveAndFlush(user);
     }
 
     @Override
@@ -104,5 +116,14 @@ public class UserSericeImpl implements UserServiceDAO {
 ////    @Transactional
     public List<User> getAll() {
         return (List<User>) userRepository.findAll();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        User user = userRepository.findByLogin(login).orElse(null);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
+        return user;
     }
 }

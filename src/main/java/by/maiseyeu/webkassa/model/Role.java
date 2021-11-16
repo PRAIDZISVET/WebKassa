@@ -1,6 +1,7 @@
 package by.maiseyeu.webkassa.model;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "roles")
-public class Role extends BaseEntity <Long> {
+public class Role extends BaseEntity <Long> implements GrantedAuthority {
 
     @Column(name = "name")
     private String name;
@@ -21,4 +22,9 @@ public class Role extends BaseEntity <Long> {
     @OneToMany(mappedBy = "role")
     @ToString.Exclude
     private Set<User> users;
+
+    @Override
+    public String getAuthority() {
+        return getName();
+    }
 }
