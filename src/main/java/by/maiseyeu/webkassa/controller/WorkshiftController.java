@@ -10,11 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Controller
+@SessionAttributes("workshift")
 @RequestMapping("/workshift")
 public class WorkshiftController {
 
@@ -65,6 +67,36 @@ public class WorkshiftController {
         workshift.setWorkplace(workplaceService.getById(workplace_id));
         workshift.setOpenDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
         workshiftService.save(workshift);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/open", method = RequestMethod.GET)
+    public ModelAndView openWorkshift(@ModelAttribute("workshift") Workshift workshift,
+                                      HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/cashier");
+        User user = (User) session.getAttribute("user");
+        workshift.setUser(user);
+        workshift.setWorkplace(workplaceService.getById(user.getWorkplace().getId()));
+        workshift.setOpenDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+        workshiftService.save(workshift);
+        modelAndView.addObject("workshift",workshift);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/close", method = RequestMethod.GET)
+    public ModelAndView closeWorkshift(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/cashier");
+        User user = (User) session.getAttribute("user");
+//        Workshift workshift=(Workshift) session.getAttribute("workshift");
+ ////       Workshift workshift=workshiftService.getById(user.getWorkplace().getWorkshifts().get(0).getId());
+//        User user = (User) session.getAttribute("user");
+//        workshift.setUser(user);
+//        workshift.
+//        workshift.setWorkplace(workplaceService.getById(user.getWorkplace().getId()));
+        workshift.setCloseDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+        workshiftService.update(workshift);
         return modelAndView;
     }
 

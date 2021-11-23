@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+@SessionAttributes("user")
 public class UserController {
 
 //    ServiceDAO userService = new UserSericeImpl();
@@ -52,6 +53,7 @@ public class UserController {
                               @RequestParam("password") String password) {
         User user = userService.getByLogin(login);
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("user",user);
         if (user != null ) {
             if (user.getPassword().equals(password)) {
                 if (user.getRole().getId() == 1) {

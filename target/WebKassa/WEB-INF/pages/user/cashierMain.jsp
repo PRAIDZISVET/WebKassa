@@ -12,10 +12,12 @@
     <title>Cashier MainPage</title>
 </head>
 <body>
-Hello cashier!
+ <p>Hello cashier, ${user.name} !</p>
 
-<h2><a href="/userList">Open workshift</a></h2>
-<h2><a href="/userList">Close workshift</a></h2>
+
+<h2><a href="/workshift/open">Open workshift</a></h2>
+
+<h2><a href="/workshift/close">Close workshift</a></h2>
 <h2><a href="/userList">Покупка валюты</a></h2>
 <h2><a href="/userList">Продажа валюты</a></h2>
 <h2><a href="/userList">Конверсия</a></h2>
