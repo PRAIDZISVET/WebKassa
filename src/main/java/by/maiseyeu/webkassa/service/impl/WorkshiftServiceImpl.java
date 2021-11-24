@@ -1,19 +1,22 @@
 package by.maiseyeu.webkassa.service.impl;
 
+import by.maiseyeu.webkassa.model.User;
 import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.model.Workshift;
 import by.maiseyeu.webkassa.repository.BaseDAO;
 import by.maiseyeu.webkassa.repository.WorkshiftRepository;
 import by.maiseyeu.webkassa.service.ServiceDAO;
+import by.maiseyeu.webkassa.service.WorkhiftServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service("workshiftService")
-public class WorkshiftServiceImpl implements ServiceDAO <Long, Workshift> {
+public class WorkshiftServiceImpl implements WorkhiftServiceDAO {
 
 //    private BaseDAO<Long, Workshift> workshiftDAO;
 //
@@ -62,32 +65,41 @@ public class WorkshiftServiceImpl implements ServiceDAO <Long, Workshift> {
 //    }
 
     @Override
- //   @Transactional
+    @Transactional
     public void save(Workshift workshift) {
         workshiftRepository.saveAndFlush(workshift);
     }
 
     @Override
- //   @Transactional
+    @Transactional
+    public Workshift saveAndReturnObj(Workshift workshift) {
+        return workshiftRepository.save(workshift);
+    }
+
+    @Override
+    public Workshift findByUser(User user) {
+        return workshiftRepository.findByUserAndCloseDateTimeNull(user).orElse(null);
+    }
+
+    @Override
+    @Transactional
     public void update(Workshift workshift) {
         workshiftRepository.saveAndFlush(workshift);
     }
 
     @Override
- //   @Transactional
     public void delete(Workshift workshift) {
         workshiftRepository.delete(workshift);
     }
 
     @Override
- //   @Transactional
     public Workshift getById(Long id) {
         return workshiftRepository.getById(id);
     }
 
     @Override
- //   @Transactional
     public List<Workshift> getAll() {
         return workshiftRepository.findAll();
     }
+
 }

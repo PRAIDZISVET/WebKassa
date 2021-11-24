@@ -16,6 +16,7 @@ by\maiseyeu\webkassa\model\Workplace.class
 by\maiseyeu\webkassa\repository\UserRepository.class
 by\maiseyeu\webkassa\repository\WorkshiftRepository.class
 by\maiseyeu\webkassa\model\Currency.class
+by\maiseyeu\webkassa\config\WebSecurityConfig.class
 by\maiseyeu\webkassa\controller\RateController.class
 by\maiseyeu\webkassa\model\User.class
 by\maiseyeu\webkassa\service\impl\WorkshiftServiceImpl.class
@@ -44,6 +45,7 @@ by\maiseyeu\webkassa\controller\CurrencyController.class
 by\maiseyeu\webkassa\service\impl\RestServiceImpl.class
 by\maiseyeu\webkassa\model\Rest.class
 by\maiseyeu\webkassa\service\impl\WorkplaceServiceImpl.class
+by\maiseyeu\webkassa\service\WorkhiftServiceDAO.class
 by\maiseyeu\webkassa\model\Rate.class
 by\maiseyeu\webkassa\model\BaseEntity.class
 by\maiseyeu\webkassa\repository\impl\OperDAOImpl.class

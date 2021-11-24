@@ -3,8 +3,10 @@ package by.maiseyeu.webkassa.controller;
 import by.maiseyeu.webkassa.model.Role;
 import by.maiseyeu.webkassa.model.User;
 import by.maiseyeu.webkassa.model.Workplace;
+import by.maiseyeu.webkassa.model.Workshift;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.UserServiceDAO;
+import by.maiseyeu.webkassa.service.WorkhiftServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes({"user","workshift"})
 public class UserController {
 
 //    ServiceDAO userService = new UserSericeImpl();
@@ -22,6 +24,7 @@ public class UserController {
     private UserServiceDAO  userService;
     private ServiceDAO<Long,Role> roleService;
     private ServiceDAO<Long, Workplace> workplaceService;
+    private WorkhiftServiceDAO workshiftService;
 
     @Autowired
     @Qualifier("userService")
@@ -40,6 +43,11 @@ public class UserController {
     public void setWorkplaceService(ServiceDAO<Long, Workplace> workplaceService) {
         this.workplaceService = workplaceService;
     }
+    @Autowired
+    @Qualifier("workshiftService")
+    public void setWorkshiftService(WorkhiftServiceDAO workshiftService) {
+        this.workshiftService = workshiftService;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView toLoginPage() {
@@ -52,8 +60,10 @@ public class UserController {
     public ModelAndView login(@RequestParam("login") String login,
                               @RequestParam("password") String password) {
         User user = userService.getByLogin(login);
+        Workshift workshift = workshiftService.findByUser(user);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("user",user);
+        modelAndView.addObject("workshift",workshift);
         if (user != null ) {
             if (user.getPassword().equals(password)) {
                 if (user.getRole().getId() == 1) {

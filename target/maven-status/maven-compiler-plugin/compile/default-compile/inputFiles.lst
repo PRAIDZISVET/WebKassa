@@ -36,6 +36,7 @@ C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\controller\WorkplaceController.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\BaseDAO.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\config\AppInitializer.java
+C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\WorkhiftServiceDAO.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\impl\WorkshiftServiceImpl.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\impl\RateDAOImpl.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\impl\RoleServiceImpl.java
@@ -47,6 +48,7 @@ C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\controll
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\model\Role.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\controller\ReceiptController.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\controller\WorkshiftController.java
+C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\config\WebSecurityConfig.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\handler\GlobalDateBinder.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\impl\RoleDAOImpl.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\impl\UserSericeImpl.java

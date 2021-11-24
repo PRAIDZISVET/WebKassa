@@ -4,6 +4,7 @@ import by.maiseyeu.webkassa.model.User;
 import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.model.Workshift;
 import by.maiseyeu.webkassa.service.ServiceDAO;
+import by.maiseyeu.webkassa.service.WorkhiftServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,19 +17,20 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Controller
-@SessionAttributes("workshift")
+@SessionAttributes({"workshift","message"})
 @RequestMapping("/workshift")
 public class WorkshiftController {
 
-    private ServiceDAO<Long, Workshift> workshiftService;
+    private WorkhiftServiceDAO workshiftService;
     private ServiceDAO<Long, User> userService;
     private ServiceDAO<Long, Workplace> workplaceService;
 
     @Autowired
     @Qualifier("workshiftService")
-    public void setWorkshiftService(ServiceDAO<Long, Workshift> workshiftService) {
+    public void setWorkshiftService(WorkhiftServiceDAO workshiftService) {
         this.workshiftService = workshiftService;
     }
+
     @Autowired
     @Qualifier("userService")
     public void setUserService(ServiceDAO<Long, User> userService) {
@@ -71,16 +73,24 @@ public class WorkshiftController {
     }
 
     @RequestMapping(value = "/open", method = RequestMethod.GET)
-    public ModelAndView openWorkshift(@ModelAttribute("workshift") Workshift workshift,
-                                      HttpSession session) {
+    public ModelAndView openWorkshift(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cashier");
         User user = (User) session.getAttribute("user");
-        workshift.setUser(user);
-        workshift.setWorkplace(workplaceService.getById(user.getWorkplace().getId()));
-        workshift.setOpenDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
-        workshiftService.save(workshift);
-        modelAndView.addObject("workshift",workshift);
+        Workshift workshift = new Workshift();
+            workshift.setUser(user);
+            workshift.setWorkplace(user.getWorkplace());
+            workshift.setOpenDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+            Workshift checkWorkshift = workshiftService.findByUser(user);
+            if (checkWorkshift==null){
+                Workshift workshiftDB = workshiftService.saveAndReturnObj(workshift);
+                modelAndView.addObject("workshift",workshiftDB);
+            } else {
+                String message = "Найдена открытая смена № " + checkWorkshift.getId()+ " ,открыта " + checkWorkshift.getOpenDateTime();
+                modelAndView.addObject("message", message);
+            }
+
+ //       }
         return modelAndView;
     }
 
@@ -89,14 +99,21 @@ public class WorkshiftController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cashier");
         User user = (User) session.getAttribute("user");
+        Workshift checkWorkshift = workshiftService.findByUser(user);
+        if (checkWorkshift!=null){
+            checkWorkshift.setCloseDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+            workshiftService.update(checkWorkshift);
+//            modelAndView.("workshift",null);
+            session.removeAttribute("workshift");
+        }
 //        Workshift workshift=(Workshift) session.getAttribute("workshift");
  ////       Workshift workshift=workshiftService.getById(user.getWorkplace().getWorkshifts().get(0).getId());
 //        User user = (User) session.getAttribute("user");
 //        workshift.setUser(user);
 //        workshift.
 //        workshift.setWorkplace(workplaceService.getById(user.getWorkplace().getId()));
-        workshift.setCloseDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
-        workshiftService.update(workshift);
+//        workshift.setCloseDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+//        workshiftService.update(workshift);
         return modelAndView;
     }
 
