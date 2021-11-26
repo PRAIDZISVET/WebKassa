@@ -4,6 +4,7 @@ import by.maiseyeu.webkassa.model.Oper;
 import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.repository.BaseDAO;
 import by.maiseyeu.webkassa.repository.OperRepository;
+import by.maiseyeu.webkassa.service.OperServiceDAO;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service("operService")
-public class OperServiceImpl implements ServiceDAO<Long,Oper> {
+public class OperServiceImpl implements OperServiceDAO {
 
 //    private BaseDAO<Long, Oper> operDAO;
 //
@@ -89,4 +90,9 @@ public void save(Oper oper) {
     public List<Oper> getAll() {
         return operRepository.findAll();
     }
+
+//    @Override
+//    public List<Oper> getAllOpersActive() {
+//        return operRepository.getAllByActiveTrue();
+//    }
 }

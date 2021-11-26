@@ -1,9 +1,7 @@
 package by.maiseyeu.webkassa.controller;
 
-import by.maiseyeu.webkassa.model.Role;
-import by.maiseyeu.webkassa.model.User;
-import by.maiseyeu.webkassa.model.Workplace;
-import by.maiseyeu.webkassa.model.Workshift;
+import by.maiseyeu.webkassa.model.*;
+import by.maiseyeu.webkassa.service.OperServiceDAO;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.UserServiceDAO;
 import by.maiseyeu.webkassa.service.WorkhiftServiceDAO;
@@ -19,12 +17,12 @@ import java.util.List;
 @SessionAttributes({"user","workshift"})
 public class UserController {
 
-//    ServiceDAO userService = new UserSericeImpl();
 
     private UserServiceDAO  userService;
     private ServiceDAO<Long,Role> roleService;
     private ServiceDAO<Long, Workplace> workplaceService;
     private WorkhiftServiceDAO workshiftService;
+    private OperServiceDAO operService;
 
     @Autowired
     @Qualifier("userService")
@@ -49,6 +47,12 @@ public class UserController {
         this.workshiftService = workshiftService;
     }
 
+    @Autowired
+    @Qualifier("operService")
+    public void setOperService(OperServiceDAO operService) {
+        this.operService = operService;
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView toLoginPage() {
         ModelAndView modelAndView = new ModelAndView();
@@ -61,9 +65,14 @@ public class UserController {
                               @RequestParam("password") String password) {
         User user = userService.getByLogin(login);
         Workshift workshift = workshiftService.findByUser(user);
+ //       List<Oper> operList = operService.getAll();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("user",user);
         modelAndView.addObject("workshift",workshift);
+//        Oper oper = operList.get(0);
+ //       modelAndView.addObject("operList",operList);
+//        modelAndView.addObject("oper",oper);
+
         if (user != null ) {
             if (user.getPassword().equals(password)) {
                 if (user.getRole().getId() == 1) {
@@ -90,6 +99,8 @@ public class UserController {
     @RequestMapping(value = "/cashier", method = RequestMethod.GET)
     public ModelAndView cashierPage() {
         ModelAndView modelAndView = new ModelAndView();
+        List<Oper> operList = operService.getAll();
+        modelAndView.addObject("operList",operList);
         modelAndView.setViewName("user/cashierMain");
         return modelAndView;
     }

@@ -2,6 +2,7 @@ package by.maiseyeu.webkassa.controller;
 
 import by.maiseyeu.webkassa.model.Oper;
 import by.maiseyeu.webkassa.model.Workplace;
+import by.maiseyeu.webkassa.service.OperServiceDAO;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,11 +19,12 @@ import java.util.List;
 @RequestMapping("/oper")
 public class OperController {
 
-    private ServiceDAO<Long, Oper> operService;
+    private OperServiceDAO operService;
+
 
     @Autowired
     @Qualifier("operService")
-    public void setOperService(ServiceDAO<Long, Oper> operService) {
+    public void setOperService(OperServiceDAO operService) {
         this.operService = operService;
     }
 

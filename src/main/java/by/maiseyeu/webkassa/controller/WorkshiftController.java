@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -95,7 +96,7 @@ public class WorkshiftController {
     }
 
     @RequestMapping(value = "/close", method = RequestMethod.GET)
-    public ModelAndView closeWorkshift(HttpSession session) {
+    public ModelAndView closeWorkshift(HttpSession session, SessionStatus status) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cashier");
         User user = (User) session.getAttribute("user");
@@ -103,8 +104,10 @@ public class WorkshiftController {
         if (checkWorkshift!=null){
             checkWorkshift.setCloseDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
             workshiftService.update(checkWorkshift);
-//            modelAndView.("workshift",null);
-            session.removeAttribute("workshift");
+//            Workshift workshift = workshiftService.findByUser(user);
+//           modelAndView.addObject("workshift",workshift);
+
+//            session.removeAttribute("workshift");
         }
 //        Workshift workshift=(Workshift) session.getAttribute("workshift");
  ////       Workshift workshift=workshiftService.getById(user.getWorkplace().getWorkshifts().get(0).getId());
@@ -114,6 +117,7 @@ public class WorkshiftController {
 //        workshift.setWorkplace(workplaceService.getById(user.getWorkplace().getId()));
 //        workshift.setCloseDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
 //        workshiftService.update(workshift);
+        status.setComplete();
         return modelAndView;
     }
 

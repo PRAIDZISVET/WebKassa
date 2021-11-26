@@ -14,12 +14,14 @@ by\maiseyeu\webkassa\service\impl\RateServiceImpl.class
 by\maiseyeu\webkassa\service\RateServiceDAO.class
 by\maiseyeu\webkassa\model\Workplace.class
 by\maiseyeu\webkassa\repository\UserRepository.class
+by\maiseyeu\webkassa\service\OperServiceDAO.class
 by\maiseyeu\webkassa\repository\WorkshiftRepository.class
 by\maiseyeu\webkassa\model\Currency.class
 by\maiseyeu\webkassa\config\WebSecurityConfig.class
 by\maiseyeu\webkassa\controller\RateController.class
 by\maiseyeu\webkassa\model\User.class
 by\maiseyeu\webkassa\service\impl\WorkshiftServiceImpl.class
+by\maiseyeu\webkassa\service\CurrencyServiceDAO.class
 by\maiseyeu\webkassa\repository\CurrencyRepository.class
 by\maiseyeu\webkassa\controller\UserController.class
 by\maiseyeu\webkassa\model\Receipt.class

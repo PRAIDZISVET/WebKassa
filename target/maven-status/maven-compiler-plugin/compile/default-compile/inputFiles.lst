@@ -9,6 +9,7 @@ C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\model\Cu
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\RoleRepository.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\UserRepository.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\impl\ReceiptDAOImpl.java
+C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\OperServiceDAO.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\controller\RateController.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\impl\ReceiptServiceImpl.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\CurrencyRepository.java
@@ -51,6 +52,7 @@ C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\controll
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\config\WebSecurityConfig.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\handler\GlobalDateBinder.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\impl\RoleDAOImpl.java
+C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\CurrencyServiceDAO.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\service\impl\UserSericeImpl.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\repository\impl\WorkplaceDAOImpl.java
 C:\Users\SASHA\IdeaProjects\WebKassa\src\main\java\by\maiseyeu\webkassa\model\Rest.java

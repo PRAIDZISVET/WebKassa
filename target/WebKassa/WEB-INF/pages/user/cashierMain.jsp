@@ -1,3 +1,4 @@
+<%--@elvariable id="user" type=""--%>
 <%--
   Created by IntelliJ IDEA.
   User: SASHA
@@ -28,20 +29,21 @@
 <h2><a href="/workshift/open">Open workshift</a></h2>
 
 <h2><a href="/workshift/close">Close workshift</a></h2>
-<h2><a href="/userList">Покупка валюты</a></h2>
-<h2><a href="/userList">Продажа валюты</a></h2>
-<h2><a href="/userList">Конверсия</a></h2>
 
+ <h2>Проведение операций:</h2>
 
+ <table>
+     <c:forEach var="oper" items="${operList}">
+         <tr>
+             <td><a href="/receipt/make/${oper.id}">${oper.name}</a></td>
+         </tr>
+     </c:forEach>
+ </table>
 
-<h2><a href="/userList">Users</a></h2>
-<h2><a href="/workplace/list">Workplaces</a></h2>
-<h2><a href="/currency/list">Currencies</a></h2>
-<h2><a href="/oper/list">Opers</a></h2>
-<h2><a href="/rate/list">Rates</a></h2>
-<h2><a href="/workshift/list">Workshifts</a></h2>
-<h2><a href="/rest/list">Rests</a></h2>
-<h2><a href="/receipt/list">Receipts</a></h2>
+ <h2>Инфо:</h2>
+<ul><a href="/rate/list">Курсы валют</a></ul>
+<ul><a href="/rest/list">Остатки ценностей в кассе</a></ul>
+<ul><a href="/receipt/list">Картотека операций за смену</a></ul>
 </body>
 </html>
 

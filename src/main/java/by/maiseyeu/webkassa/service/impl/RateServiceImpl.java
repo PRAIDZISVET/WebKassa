@@ -1,5 +1,6 @@
 package by.maiseyeu.webkassa.service.impl;
 
+import by.maiseyeu.webkassa.model.Currency;
 import by.maiseyeu.webkassa.model.Rate;
 import by.maiseyeu.webkassa.repository.RateDAO;
 import by.maiseyeu.webkassa.repository.RateRepository;
@@ -93,6 +94,11 @@ public class RateServiceImpl implements RateServiceDAO {
 //    @Transactional
     public List<Rate> getAll() {
         return rateRepository.findAll();
+    }
+
+    @Override
+    public Rate getRateByCurrInIsAndCurrOutIs(Currency currIn, Currency currOut) {
+        return rateRepository.getRateByCurrInIsAndCurrOutIs(currIn,currOut);
     }
 
 //    @Override
