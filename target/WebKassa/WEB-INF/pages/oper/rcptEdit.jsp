@@ -31,8 +31,10 @@
         <input type="text" name="workshift_id" id="workshift_id">
         <label for="rate_id">Rate</label>
         <input type="number" name="rate_id" id="rate_id">
-        <label for="sum">Sum</label>
-        <input type="number" name="sum" id="sum">
+        <label for="sumIn">SumIn</label>
+        <input type="number" name="sumIn" id="sumIn">
+        <label for="sumOut">SumOut</label>
+        <input type="number" name="sumOut" id="sumOut">
     </c:if>
     <c:if test="${!empty receipt.id}">
         <input type="hidden" name="id" value="${receipt.id}">
@@ -42,8 +44,10 @@
         <input type="text" name="workshift_id" id="workshift_id" value="${receipt.workshift.id}">
         <label for="rate_id">Rate</label>
         <input type="number" name="rate_id" id="rate_id" value="${receipt.rate.id}">
-        <label for="sum">Sum</label>
-        <input type="number" name="sum" id="sum" value="${receipt.sum}">
+        <label for="sumIn">SumIn</label>
+        <input type="number" name="sumIn" id="sumIn" value="${receipt.sumIn}">
+        <label for="sumOut">SumOut</label>
+        <input type="number" name="sumOut" id="sumOut" value="${receipt.sumOut}">
     </c:if>
     <c:if test="${empty receipt.id}">
         <input type="submit" value="Set new receipt">

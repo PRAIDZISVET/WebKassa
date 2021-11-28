@@ -30,6 +30,9 @@ public class Receipt extends BaseEntity<Long>{
     @Column(name = "date_time")
     private LocalDateTime dateTime;
 
-    @Column(name = "sum")
-    private BigDecimal sum;
+    @Column(name = "sum_in")
+    private BigDecimal sumIn;
+
+    @Column(name = "sum_out")
+    private BigDecimal sumOut;
 }

@@ -61,32 +61,45 @@ public class CurrencyServiceImpl implements CurrencyServiceDAO {
 //    }
 
     @Override
- //   @Transactional
+    @Transactional
     public void save(Currency currency) {
         currencyRepository.saveAndFlush(currency);
     }
 
     @Override
-//    @Transactional
+    @Transactional
     public void update(Currency currency) {
         currencyRepository.saveAndFlush(currency);
     }
 
     @Override
-//    @Transactional
     public void delete(Currency currency) {
         currencyRepository.delete(currency);
     }
 
     @Override
- //   @Transactional
+    @Transactional
     public Currency getById(Long id) {
-        return currencyRepository.getById(id);
+
+        return currencyRepository.findById(id).orElse(null);
     }
 
     @Override
- //   @Transactional
+    @Transactional
     public List<Currency> getAll() {
         return currencyRepository.findAll();
+    }
+
+
+    @Override
+    @Transactional
+    public Currency getCurrencyByName(String currName) {
+        return currencyRepository.getCurrencyByName(currName);
+    }
+
+    @Override
+    @Transactional
+    public Currency getCurrencyByIso(String iso) {
+        return currencyRepository.getCurrencyByIso(iso);
     }
 }

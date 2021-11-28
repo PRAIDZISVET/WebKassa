@@ -1,0 +1,35 @@
+
+c
+java:S4488)"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÏÊÃ×ûÿÿÿÿ
+c
+java:S44882"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Û•ôûÿÿÿÿ
+[
+java:S4684:"@Replace this persistent entity with a simple POJO or DTO object.(Ÿóé„üÿÿÿÿ
+`
+java:S44889"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã
+^
+java:S4488F"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ñ¯‡¬
+[
+java:S4684P"@Replace this persistent entity with a simple POJO or DTO object.(‘ð¹ùÿÿÿÿ
+`
+java:S4488O"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Šµ†Í
+c
+java:S4488\"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ó¼ñìûÿÿÿÿ
+7
+java:S1116`"Remove this empty statement.(ÖªÌÿÿÿÿÿ
+_
+java:S1128"JRemove this unused import 'by.maiseyeu.webkassa.handler.GlobalDateBinder'.(¦»Ô)
+W
+java:S1128"ARemove this unused import 'by.maiseyeu.webkassa.model.Workplace'.(ôõÃË
+O
+java:S1128"4Remove this unused import 'java.time.ZonedDateTime'.(Å¯Ð©ûÿÿÿÿ
+U
+java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª
+H
+java:S1128"-Remove this unused import 'java.util.Locale'.(åð×±ûÿÿÿÿ
+o
+java:S1192>"TDefine a constant instead of duplicating this literal "redirect:/rate/list" 3 times.(¿—Ž†ûÿÿÿÿ
+k	java:S117;"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹¤þîÿÿÿÿÿ
+e	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç½‘}
+k	java:S117Q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹¤þîÿÿÿÿÿ
+e	java:S117R"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç½‘}

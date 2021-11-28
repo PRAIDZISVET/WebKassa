@@ -1,0 +1,19 @@
+
+c
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÏÊÃ×ûÿÿÿÿ
+c
+java:S4488("HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Û•ôûÿÿÿÿ
+V
+java:S46840"@Replace this persistent entity with a simple POJO or DTO object.(—ŸâÄ
+`
+java:S4488/"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã
+^
+java:S44887"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ñ¯‡¬
+[
+java:S4684A"@Replace this persistent entity with a simple POJO or DTO object.(¯Óˆ³øÿÿÿÿ
+`
+java:S4488@"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Šµ†Í
+W
+java:S1128"ARemove this unused import 'by.maiseyeu.webkassa.model.Workplace'.(ôõÃË
+_
+java:S1128"DRemove this unused import 'by.maiseyeu.webkassa.service.ServiceDAO'.(ĞÖõñúÿÿÿÿ

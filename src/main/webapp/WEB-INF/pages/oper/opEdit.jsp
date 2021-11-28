@@ -27,15 +27,19 @@
     <c:if test="${empty oper.id}">
         <label for="name">Name</label>
         <input type="text" name="name" id="name">
+        <label for="incom">isIncom</label>
+        <input type="checkbox" name="incom" id="incom">
         <label for="active">isActive</label>
-        <input type="text" name="active" id="active">
+        <input type="checkbox" name="active" id="active">
     </c:if>
     <c:if test="${!empty oper.id}">
         <input type="hidden" name="id" value="${oper.id}">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" value="${oper.name}">
+        <label for="incom">isIncom</label>
+        <input type="checkbox" name="incom" id="incom value="${oper.incom}">
         <label for="active">isActive</label>
-        <input type="text" name="active" id="active" value="${oper.active}">
+        <input type="checkbox" name="active" id="active" value="${oper.active}">
     </c:if>
     <c:if test="${empty oper.id}">
         <input type="submit" value="Add new oper">

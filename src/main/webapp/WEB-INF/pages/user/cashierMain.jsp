@@ -35,7 +35,7 @@
  <table>
      <c:forEach var="oper" items="${operList}">
          <tr>
-             <td><a href="/receipt/make/${oper.id}">${oper.name}</a></td>
+             <td><a href="/receipt/make/${oper.id}/${oper.name}">${oper.name}</a></td>
          </tr>
      </c:forEach>
  </table>

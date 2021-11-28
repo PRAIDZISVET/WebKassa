@@ -17,10 +17,13 @@ public class Oper extends BaseEntity<Long> {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "isincom")
+    private boolean isIncom;
+
     @Column(name = "isactive")
     private boolean isActive;
 
-    @OneToMany(mappedBy = "oper", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "oper", cascade = {CascadeType.MERGE, CascadeType.REFRESH},fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Receipt> receipts;
 }

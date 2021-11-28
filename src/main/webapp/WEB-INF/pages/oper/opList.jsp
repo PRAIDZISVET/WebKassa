@@ -17,6 +17,7 @@
     <tr>
         <th>id</th>
         <th>name</th>
+        <th>isincom</th>
         <th>isactive</th>
         <th>action</th>
     </tr>
@@ -24,6 +25,7 @@
         <tr>
             <td>${oper.id}</td>
             <td>${oper.name}</td>
+            <td>${oper.incom}</td>
             <td>${oper.active}</td>
             <td>
                 <a href="/oper/edit/${oper.id}">edit</a>

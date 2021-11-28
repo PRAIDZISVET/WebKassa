@@ -61,14 +61,14 @@ public class OperServiceImpl implements OperServiceDAO {
 //        return operDAO.getAll();
 //    }
 
-@Override
-//@Transactional
-public void save(Oper oper) {
-    operRepository.saveAndFlush(oper);
-}
+    @Override
+    @Transactional
+    public void save(Oper oper) {
+        operRepository.saveAndFlush(oper);
+    }
 
     @Override
- //   @Transactional
+    @Transactional
     public void update(Oper oper) {
         operRepository.saveAndFlush(oper);
     }
@@ -80,13 +80,13 @@ public void save(Oper oper) {
     }
 
     @Override
- //   @Transactional
+    @Transactional
     public Oper getById(Long id) {
-        return operRepository.getById(id);
+        return operRepository.findById(id).orElse(null);
     }
 
     @Override
- //   @Transactional
+    @Transactional
     public List<Oper> getAll() {
         return operRepository.findAll();
     }

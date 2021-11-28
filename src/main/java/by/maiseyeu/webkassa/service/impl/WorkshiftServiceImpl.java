@@ -77,6 +77,7 @@ public class WorkshiftServiceImpl implements WorkhiftServiceDAO {
     }
 
     @Override
+    @Transactional
     public Workshift findByUser(User user) {
         return workshiftRepository.findByUserAndCloseDateTimeNull(user).orElse(null);
     }
@@ -93,11 +94,14 @@ public class WorkshiftServiceImpl implements WorkhiftServiceDAO {
     }
 
     @Override
+    @Transactional
     public Workshift getById(Long id) {
-        return workshiftRepository.getById(id);
+
+        return workshiftRepository.findById(id).orElse(null);
     }
 
     @Override
+    @Transactional
     public List<Workshift> getAll() {
         return workshiftRepository.findAll();
     }

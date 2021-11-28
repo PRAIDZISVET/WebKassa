@@ -9,32 +9,52 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>CURRENCY EXCHANGE</title>
+    <title>Currency Exchange</title>
 </head>
 <body>
-<h2>Enter currency and sum:</h2>
+<c:if test="${!empty message}">
+    <h1>${message}</h1>
+</c:if>
+<h2>${oper.name}</h2>
+<h3>Enter currency and sum:</h3>
+<c:url value="/receipt/make" var="var"/>
 <form action="${var}" method="POST">
-    <label for="currIn">CurrIn</label>
-
+    <input type="hidden" name="operId" value="${oper.id}">
+    <label for="curr">CurrIn</label>
+    <br><br>
     <table>
-        <c:forEach var="currIn" items="${currList}">
-            <li>
-                <input type="radio" name="currIn" id="currIn" value="${currIn.id}"/>${currIn.name}<br><br>
-            </li>
+        <c:forEach var="curr" items="${currList}">
+            <c:if test="${curr.code != 933}">
+                <tr>
+                    <td><input type="radio" name="curr" id="curr" value="${curr.id}"/></td>
+                    <th>
+                            ${curr.name}
+                    <th>
+                </tr>
+            </c:if>
         </c:forEach>
-
     </table>
-
-    <label for="sumIn">SumIn</label>
-    <input type="number" name="sumIn" id="sumIn" value="${receipt.sum}">
-    <label for="currOut">CurrOut</label>
-    <c:forEach var="currIn" items="${currList}">
-        <tr>
-            <input type="radio" name="currOut" id="currOut" value="${currIn.iso}">
-        </tr>
-    </c:forEach>
-    <label for="sumOut">SumOut</label>
-    <input type="number" name="sumOut" id="sumOut" value="${receipt.sum}">
+    <br><br>
+    <label for="sum">Sum</label>
+    <input type="number" name="sum" id="sum">
+    <br><br>
+    <c:if test="${oper.id == 3}">
+        <label for="currEq">CurrOut</label>
+        <br><br>
+        <table>
+            <c:forEach var="currEq" items="${currList}">
+                <c:if test="${currEq.code != 933}">
+                    <tr>
+                        <td><input type="radio" name="currEq" id="currEq" value="${currEq.id}"/></td>
+                        <th>
+                                ${currEq.name}
+                        <th>
+                    </tr>
+                </c:if>
+            </c:forEach>
+        </table>
+    </c:if>
+    <br><br>
     <input type="submit" value="Next">
 </form>
 </body>

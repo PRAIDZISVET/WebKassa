@@ -1,0 +1,52 @@
+
+c
+java:S4488C"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÏÊÃ×ûÿÿÿÿ
+c
+java:S4488L"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Û•ôûÿÿÿÿ
+[
+java:S4684T"@Replace this persistent entity with a simple POJO or DTO object.(˜•à…úÿÿÿÿ
+`
+java:S4488S"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã
+c
+java:S4488b"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÅÈÖùÿÿÿÿ
+V	java:S125e"<This block of commented-out lines of code should be removed.(­½Ë¯úÿÿÿÿ
+V	java:S125j"<This block of commented-out lines of code should be removed.(Ñ»ºşÿÿÿÿ
+V	java:S125n"<This block of commented-out lines of code should be removed.(©Šşşÿÿÿÿ
+V	java:S125r"<This block of commented-out lines of code should be removed.(äâéœùÿÿÿÿ
+[
+java:S4684x"@Replace this persistent entity with a simple POJO or DTO object.(ùÊåßÿÿÿÿÿ
+e
+java:S4488w"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(”¾¾®ıÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(ë¶»Ó
+W	java:S125‚"<This block of commented-out lines of code should be removed.(¶Áó›øÿÿÿÿ
+W	java:S125ƒ"<This block of commented-out lines of code should be removed.(ËÕ¾üÿÿÿÿ
+R	java:S125„"<This block of commented-out lines of code should be removed.(½áÒé
+W	java:S125—"<This block of commented-out lines of code should be removed.(äò®¡ÿÿÿÿÿ
+R	java:S125"<This block of commented-out lines of code should be removed.(°Š…Ñ
+W	java:S125¡"<This block of commented-out lines of code should be removed.(ÒİÚÖÿÿÿÿÿ
+\
+java:S4684¬"@Replace this persistent entity with a simple POJO or DTO object.(®»ğšşÿÿÿÿ
+f
+java:S4488«"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(á˜‡¿øÿÿÿÿ
+W	java:S125­"<This block of commented-out lines of code should be removed.( ®ß‘şÿÿÿÿ
+R	java:S125²"<This block of commented-out lines of code should be removed.(ø¦‚
+W	java:S125¸"<This block of commented-out lines of code should be removed.(©Šşşÿÿÿÿ
+_
+java:S4488Â"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ñ¯‡¬
+W
+java:S4684Ì"@Replace this persistent entity with a simple POJO or DTO object.(»øŞ
+a
+java:S4488Ë"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Šµ†Í
+d
+java:S4488Ú"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ó¼ñìûÿÿÿÿ
+3
+java:S1116Ş"Remove this empty statement.(ô¦Ñ™
+W	java:S125ù"<This block of commented-out lines of code should be removed.(Ü×ÜÚüÿÿÿÿ
+m
+java:S1192Y"WDefine a constant instead of duplicating this literal "redirect:/receipt/list" 3 times.(²³ù
+k	java:S117U"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„”³äøÿÿÿÿ
+f	java:S117V"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëöïô
+f	java:S117W"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş§ÿ®
+l	java:S117Í"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„”³äøÿÿÿÿ
+g	java:S117Î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëöïô
+g	java:S117Ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş§ÿ®

@@ -20,7 +20,10 @@
         <th>workshift</th>
         <th>rate</th>
         <th>datetime</th>
-        <th>sum</th>
+        <th>sumIn</th>
+        <th>currIn</th>
+        <th>sumOut</th>
+        <th>currOut</th>
         <th>action</th>
     </tr>
     <c:forEach var="receipt" items="${receiptList}">
@@ -30,7 +33,10 @@
             <td>${receipt.workshift.id}</td>
             <td>${receipt.rate.value}</td>
             <td>${receipt.dateTime}</td>
-            <td>${receipt.sum}</td>
+            <td>${receipt.sumIn}</td>
+            <td>${receipt.rate.currIn.iso}</td>
+            <td>${receipt.sumOut}</td>
+            <td>${receipt.rate.currOut.iso}</td>
             <td>
                 <a href="/receipt/edit/${receipt.id}">edit</a>
                 <a href="/receipt/delete/${receipt.id}">delete</a>

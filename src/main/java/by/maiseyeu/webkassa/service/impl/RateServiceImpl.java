@@ -67,36 +67,37 @@ public class RateServiceImpl implements RateServiceDAO {
 //    }
 
     @Override
-//    @Transactional
+    @Transactional
     public void save(Rate rate) {
         rateRepository.saveAndFlush(rate);
     }
 
     @Override
- //   @Transactional
+   @Transactional
     public void update(Rate rate) {
         rateRepository.saveAndFlush(rate);
     }
 
     @Override
-  //  @Transactional
     public void delete(Rate rate) {
         rateRepository.delete(rate);
     }
 
     @Override
- //   @Transactional
+    @Transactional
     public Rate getById(Long id) {
-        return rateRepository.getById(id);
+
+        return rateRepository.findById(id).orElse(null);
     }
 
     @Override
-//    @Transactional
+    @Transactional
     public List<Rate> getAll() {
         return rateRepository.findAll();
     }
 
     @Override
+    @Transactional
     public Rate getRateByCurrInIsAndCurrOutIs(Currency currIn, Currency currOut) {
         return rateRepository.getRateByCurrInIsAndCurrOutIs(currIn,currOut);
     }

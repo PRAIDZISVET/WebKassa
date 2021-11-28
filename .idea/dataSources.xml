@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="webkassa_repository@localhost" uuid="ef19f418-6a56-4762-8ed4-67ffd4f4f3a0">
+    <data-source source="LOCAL" name="webkassa_repository@localhost" uuid="c12721e5-31a9-4cfc-9137-586a9562a071">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

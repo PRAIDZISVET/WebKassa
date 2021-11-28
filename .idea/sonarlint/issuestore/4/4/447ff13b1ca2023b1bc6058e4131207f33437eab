@@ -1,0 +1,27 @@
+
+c
+java:S4488*"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÏÊÃ×ûÿÿÿÿ
+c
+java:S44883"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Û•ôûÿÿÿÿ
+V
+java:S4684;"@Replace this persistent entity with a simple POJO or DTO object.(ˆÉÈ³
+`
+java:S4488:"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã
+^
+java:S4488F"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ñ¯‡¬
+[
+java:S4684P"@Replace this persistent entity with a simple POJO or DTO object.(Í‡è¢úÿÿÿÿ
+`
+java:S4488O"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Šµ†Í
+c
+java:S4488["HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ó¼ñìûÿÿÿÿ
+2
+java:S1116_"Remove this empty statement.(ãÀêæ
+W
+java:S1128"ARemove this unused import 'by.maiseyeu.webkassa.model.Workplace'.(ôõÃË
+o
+java:S1192?"TDefine a constant instead of duplicating this literal "redirect:/rest/list" 3 times.(û¼úÿÿÿÿ
+f	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÚ•
+f	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–â¢
+f	java:S117Q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÚ•
+f	java:S117R"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–â¢

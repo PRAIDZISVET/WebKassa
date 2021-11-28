@@ -61,31 +61,30 @@ public class ReceiptServiceImpl implements ServiceDAO<Long, Receipt> {
 //    }
 
     @Override
- //   @Transactional
+    @Transactional
     public void save(Receipt receipt) {
         receiptRepository.saveAndFlush(receipt);
     }
 
     @Override
- //   @Transactional
+    @Transactional
     public void update(Receipt receipt) {
         receiptRepository.saveAndFlush(receipt);
     }
 
     @Override
- //   @Transactional
     public void delete(Receipt receipt) {
         receiptRepository.delete(receipt);
     }
 
     @Override
- //   @Transactional
+    @Transactional
     public Receipt getById(Long id) {
-        return receiptRepository.getById(id);
+        return receiptRepository.findById(id).orElse(null);
     }
 
     @Override
- //   @Transactional
+    @Transactional
     public List<Receipt> getAll() {
         return receiptRepository.findAll();
     }
