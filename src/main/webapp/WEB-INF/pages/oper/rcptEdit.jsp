@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <c:if test="${empty receipt.id}">
         <title>Add receipt</title>
     </c:if>
@@ -50,10 +51,10 @@
         <input type="number" name="sumOut" id="sumOut" value="${receipt.sumOut}">
     </c:if>
     <c:if test="${empty receipt.id}">
-        <input type="submit" value="Set new receipt">
+        <input type="submit" value="Set">
     </c:if>
     <c:if test="${!empty receipt.id}">
-        <input type="submit" value="Edit receipt">
+        <input type="submit" value="Edit">
     </c:if>
 </form>
 </body>

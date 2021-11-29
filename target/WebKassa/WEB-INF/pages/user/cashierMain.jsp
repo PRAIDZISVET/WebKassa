@@ -10,12 +10,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <title>Cashier MainPage</title>
 </head>
 <body>
- <p>Hello cashier, ${user.name} ! Workplace ${user.workplace.name},${user.workplace.address}</p>
+ <h2>Hello cashier, ${user.name} ! Workplace ${user.workplace.name},${user.workplace.address}</h2>
     <c:if test="${empty workshift.id}">
-            <p>Не найдено открытой смены!</p>
+            <h2>Не найдено открытой смены!</h2>
         </c:if>
 <c:if test="${!empty workshift.id}">
  <p>Workshift № ${workshift.id} opened ${workshift.openDateTime}</p>

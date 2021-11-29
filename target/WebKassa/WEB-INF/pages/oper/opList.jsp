@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <title>Opers</title>
 </head>
 <body>
@@ -18,6 +19,7 @@
         <th>id</th>
         <th>name</th>
         <th>isincom</th>
+        <th>isclient</th>
         <th>isactive</th>
         <th>action</th>
     </tr>
@@ -26,6 +28,7 @@
             <td>${oper.id}</td>
             <td>${oper.name}</td>
             <td>${oper.incom}</td>
+            <td>${oper.client}</td>
             <td>${oper.active}</td>
             <td>
                 <a href="/oper/edit/${oper.id}">edit</a>

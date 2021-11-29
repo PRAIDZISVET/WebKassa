@@ -20,6 +20,9 @@ public class Oper extends BaseEntity<Long> {
     @Column(name = "isincom")
     private boolean isIncom;
 
+    @Column(name = "isclient")
+    private boolean isClient;
+
     @Column(name = "isactive")
     private boolean isActive;
 

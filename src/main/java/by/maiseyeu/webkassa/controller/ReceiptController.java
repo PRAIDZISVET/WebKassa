@@ -283,6 +283,12 @@ public class ReceiptController {
                 currentRestToMinusByWorkshift.setWorkshift(workshift);
             }
         }
+        if (currentRestToPlusByWorkshift.getSum()==null){
+            currentRestToPlusByWorkshift.setSum(BigDecimal.valueOf(0));
+        }
+        if (currentRestToMinusByWorkshift.getSum()==null){
+            currentRestToMinusByWorkshift.setSum(BigDecimal.valueOf(0));
+        }
         currentRestToPlusByWorkshift.setSum(currentRestToPlusByWorkshift.getSum().add(receipt.getSumIn()));
         currentRestToMinusByWorkshift.setSum(currentRestToMinusByWorkshift.getSum().subtract(receipt.getSumOut()));
         restService.update(currentRestToPlusByWorkshift);

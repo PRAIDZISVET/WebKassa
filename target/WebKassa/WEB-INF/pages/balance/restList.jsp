@@ -34,7 +34,6 @@
         </tr>
     </c:forEach>
 </table>
-
 <h2>Add</h2>
 <c:url value="/rest/add" var="add"/>
 <a href="${add}">Add new rest</a>

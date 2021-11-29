@@ -9,12 +9,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <title>Admin page</title>
 </head>
 <body>
-<p>Hello admin, ${user.name} !</p>
+<h2>Hello admin, ${user.name} !</h2>
 <br><br>
-<h2>Tables:</h2>
+<h2>TABLES:</h2>
     <h2><a href="/userList">Users</a></h2>
     <h2><a href="/workplace/list">Workplaces</a></h2>
     <h2><a href="/currency/list">Currencies</a></h2>

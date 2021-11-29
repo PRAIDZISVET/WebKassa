@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <c:if test="${empty workplace.id}">
         <title>Add workplace</title>
     </c:if>
@@ -42,10 +43,10 @@
         <input type="text" name="address" id="address" value="${workplace.address}">
     </c:if>
     <c:if test="${empty workplace.id}">
-        <input type="submit" value="Add new workplace">
+        <input type="submit" value="Add">
     </c:if>
     <c:if test="${!empty workplace.id}">
-        <input type="submit" value="Edit workplace">
+        <input type="submit" value="Edit">
     </c:if>
 </form>
 </body>

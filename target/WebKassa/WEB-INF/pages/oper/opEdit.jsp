@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <c:if test="${empty oper.id}">
         <title>Add oper</title>
     </c:if>
@@ -29,6 +30,8 @@
         <input type="text" name="name" id="name">
         <label for="incom">isIncom</label>
         <input type="checkbox" name="incom" id="incom">
+        <label for="client">isClient</label>
+        <input type="checkbox" name="client" id="client">
         <label for="active">isActive</label>
         <input type="checkbox" name="active" id="active">
     </c:if>
@@ -37,15 +40,17 @@
         <label for="name">Name</label>
         <input type="text" name="name" id="name" value="${oper.name}">
         <label for="incom">isIncom</label>
-        <input type="checkbox" name="incom" id="incom value="${oper.incom}">
+        <input type="checkbox" name="incom" id="incom" value="${oper.incom}">
+        <label for="client">isClient</label>
+        <input type="checkbox" name="client" id="client" value="${oper.client}">
         <label for="active">isActive</label>
         <input type="checkbox" name="active" id="active" value="${oper.active}">
     </c:if>
     <c:if test="${empty oper.id}">
-        <input type="submit" value="Add new oper">
+        <input type="submit" value="Add">
     </c:if>
     <c:if test="${!empty oper.id}">
-        <input type="submit" value="Edit oper">
+        <input type="submit" value="Edit">
     </c:if>
 </form>
 </body>

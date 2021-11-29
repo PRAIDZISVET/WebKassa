@@ -45,7 +45,11 @@ d
 java:S4488å"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ó¼ñìûÿÿÿÿ
 8
 java:S1116ê"Remove this empty statement.(Åñ­õþÿÿÿÿ
-W	java:S125¥"<This block of commented-out lines of code should be removed.(Ü×ÜÚüÿÿÿÿ
+W	java:S125«"<This block of commented-out lines of code should be removed.(Ü×ÜÚüÿÿÿÿ
+\
+java:S1128"?Remove this unused import 'org.jetbrains.annotations.Contract'.(º€»“8Ï¦úÜÖ/
+`
+java:S1128">Remove this unused import 'org.jetbrains.annotations.NotNull'.(éš®ïøÿÿÿÿ8Ï¦úÜÖ/
 h
 java:S1192l"RDefine a constant instead of duplicating this literal "redirect:/cashier" 3 times.(Šž¨Š
 m

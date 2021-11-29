@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <c:if test="${empty rate.id}">
         <title>Add rate</title>
     </c:if>
@@ -48,10 +49,10 @@
 --%>
             </c:if>
             <c:if test="${empty rate.id}">
-                <input type="submit" value="Set new rate">
+                <input type="submit" value="Set">
             </c:if>
             <c:if test="${!empty rate.id}">
-                <input type="submit" value="Edit rate">
+                <input type="submit" value="Edit">
             </c:if>
         </form>
         </body>

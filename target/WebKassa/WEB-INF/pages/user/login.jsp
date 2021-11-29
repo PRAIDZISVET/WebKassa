@@ -9,20 +9,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <title>Login page</title>
 </head>
 <body>
 <c:url value="/login" var="var"/>
 <form action="${var}" method="POST">
 
-    <label for="login">Login</label>
+    <label for="login">Login   :</label>
     <input type="text" name="login" id="login">
-    <label for="password">Password</label>
+    <br><br>
+    <label for="password">Password:</label>
     <input type="password" name="password" id="password">
+    <br><br>
     <input type="submit" value="Log in">
 
-
-    <h2><a href="/admin">admin page</a></h2>
-    <h2><a href="/cashier">cashier page</a></h2>
+</form>
 </body>
 </html>
