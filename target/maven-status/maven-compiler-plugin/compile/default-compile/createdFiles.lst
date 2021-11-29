@@ -12,6 +12,7 @@ by\maiseyeu\webkassa\repository\WorkplaceRepository.class
 by\maiseyeu\webkassa\repository\impl\UserDAOImpl.class
 by\maiseyeu\webkassa\service\impl\RateServiceImpl.class
 by\maiseyeu\webkassa\service\RateServiceDAO.class
+by\maiseyeu\webkassa\service\RestServiceDAO.class
 by\maiseyeu\webkassa\model\Workplace.class
 by\maiseyeu\webkassa\repository\UserRepository.class
 by\maiseyeu\webkassa\service\OperServiceDAO.class

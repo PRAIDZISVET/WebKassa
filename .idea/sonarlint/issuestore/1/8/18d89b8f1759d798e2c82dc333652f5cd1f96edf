@@ -1,0 +1,23 @@
+
+c
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÏÊÃ×ûÿÿÿÿ
+c
+java:S4488&"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Û•ôûÿÿÿÿ
+[
+java:S4684."@Replace this persistent entity with a simple POJO or DTO object.(›Ëžœúÿÿÿÿ
+`
+java:S4488-"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ú¿Ìã
+^
+java:S44885"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ñ¯‡¬
+[
+java:S4684?"@Replace this persistent entity with a simple POJO or DTO object.(µŒüùÿÿÿÿ
+`
+java:S4488>"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Šµ†Í
+c
+java:S4488F"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ó¼ñìûÿÿÿÿ
+7
+java:S1116J"Remove this empty statement.(àž¡úüÿÿÿÿ
+W
+java:S1128"ARemove this unused import 'by.maiseyeu.webkassa.model.Workplace'.(ôõÃË
+s
+java:S11920"XDefine a constant instead of duplicating this literal "redirect:/currency/list" 3 times.(Íˆ‹·üÿÿÿÿ

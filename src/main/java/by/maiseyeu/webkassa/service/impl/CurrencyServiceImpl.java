@@ -102,4 +102,10 @@ public class CurrencyServiceImpl implements CurrencyServiceDAO {
     public Currency getCurrencyByIso(String iso) {
         return currencyRepository.getCurrencyByIso(iso);
     }
+
+//    @Override
+//    @Transactional
+//    public List<Currency> getAllByActiveIsTrue() {
+//        return currencyRepository.getAllByActiveIsTrue();
+//    }
 }

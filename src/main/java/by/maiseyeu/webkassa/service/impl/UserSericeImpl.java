@@ -82,38 +82,37 @@ public class UserSericeImpl implements UserServiceDAO, UserDetailsService {
 
 
          @Override
- ////   @Transactional
+    @Transactional
     public void save(User user) {
 //             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.saveAndFlush(user);
     }
 
     @Override
-////    @Transactional
+    @Transactional
     public void update(User user) {
         userRepository.saveAndFlush(user);
     }
 
     @Override
-    ////   @Transactional
     public void delete(User user) {
         userRepository.delete(user);
     }
 
     @Override
-    ////   @Transactional
+    @Transactional
     public User getById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
    @Override
-////    @Transactional
+    @Transactional
     public User getByLogin(String login) {
         return userRepository.findByLogin(login).orElse(null);
     }
 
     @Override
-////    @Transactional
+    @Transactional
     public List<User> getAll() {
         return (List<User>) userRepository.findAll();
     }

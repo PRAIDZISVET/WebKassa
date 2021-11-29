@@ -15,16 +15,14 @@
 <body>
  <p>Hello cashier, ${user.name} ! Workplace ${user.workplace.name},${user.workplace.address}</p>
     <c:if test="${empty workshift.id}">
-        <c:if test="${empty message}">
             <p>Не найдено открытой смены!</p>
         </c:if>
-        <c:if test="${!empty message}">
-            <p>${message}</p>
-        </c:if>
- </c:if>
 <c:if test="${!empty workshift.id}">
  <p>Workshift № ${workshift.id} opened ${workshift.openDateTime}</p>
 </c:if>
+ <c:if test="${!empty message}">
+     <h2>${message}</h2>
+ </c:if>
 
 <h2><a href="/workshift/open">Open workshift</a></h2>
 
@@ -35,7 +33,7 @@
  <table>
      <c:forEach var="oper" items="${operList}">
          <tr>
-             <td><a href="/receipt/make/${oper.id}/${oper.name}">${oper.name}</a></td>
+             <td><a href="/receipt/make/${oper.id}/${oper.name}" onselect="${sessionScope.remove("message")} ${sessionScope.remove("restmessage")}">${oper.name}</a></td>
          </tr>
      </c:forEach>
  </table>

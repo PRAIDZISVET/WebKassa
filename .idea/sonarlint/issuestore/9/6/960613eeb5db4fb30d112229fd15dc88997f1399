@@ -1,0 +1,17 @@
+
+V	java:S125"<This block of commented-out lines of code should be removed.(ª““şüÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(¢úå©ûÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(Š–¢®ÿÿÿÿÿ
+V	java:S1252"<This block of commented-out lines of code should be removed.(à¶Ô«ùÿÿÿÿ
+Q	java:S125W"<This block of commented-out lines of code should be removed.(û¡ô·
+=
+java:S1905u"'Remove this unnecessary cast to "List".(ËÇÜÔ
+_
+java:S1128"DRemove this unused import 'by.maiseyeu.webkassa.repository.UserDAO'.(ÉÙ¶¤ÿÿÿÿÿ
+c
+java:S1128"MRemove this unused import 'by.maiseyeu.webkassa.repository.impl.UserDAOImpl'.(øéÑ
+_
+java:S1128"DRemove this unused import 'by.maiseyeu.webkassa.service.ServiceDAO'.(ĞÖõñúÿÿÿÿ
+n
+java:S1128
+"SRemove this unused import 'org.springframework.beans.factory.annotation.Qualifier'.(íàÄ®ıÿÿÿÿ

@@ -12,7 +12,9 @@
     <title>Admin page</title>
 </head>
 <body>
-    Hello admin!
+<p>Hello admin, ${user.name} !</p>
+<br><br>
+<h2>Tables:</h2>
     <h2><a href="/userList">Users</a></h2>
     <h2><a href="/workplace/list">Workplaces</a></h2>
     <h2><a href="/currency/list">Currencies</a></h2>

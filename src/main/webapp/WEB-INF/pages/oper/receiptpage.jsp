@@ -12,9 +12,6 @@
     <title>Currency Exchange</title>
 </head>
 <body>
-<c:if test="${!empty message}">
-    <h1>${message}</h1>
-</c:if>
 <h2>${oper.name}</h2>
 <h3>Enter currency and sum:</h3>
 <c:url value="/receipt/make" var="var"/>

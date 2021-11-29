@@ -1,0 +1,37 @@
+
+s
+java:S3753"XAdd a call to "setComplete()" on the SessionStatus object in a "@RequestMapping" method.(‹çÁâþÿÿÿÿ
+c
+java:S44888"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ž–û‚ùÿÿÿÿ
+e
+java:S4488?"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ÃŽèïûÿÿÿÿ
+V	java:S125D"<This block of commented-out lines of code should be removed.(Ÿ¸Âÿÿÿÿÿ
+V	java:S125H"<This block of commented-out lines of code should be removed.(Îð†·ùÿÿÿÿ
+^
+java:S4488\"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(é©•ú
+c
+java:S4488c"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÀÂÖ»üÿÿÿÿ
+^
+java:S4488l"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(æßóÑ
+B
+java:S1905n"'Remove this unnecessary cast to "User".(¼–…‡ûÿÿÿÿ
+V
+java:S4684v"@Replace this persistent entity with a simple POJO or DTO object.(˜Å÷¡
+e
+java:S4488u"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(£¥ùÂúÿÿÿÿ
+_
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¢Áø
+_
+java:S4488Š"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÒêÕ
+W
+java:S4684’"@Replace this persistent entity with a simple POJO or DTO object.(¸èÊ’
+f
+java:S4488‘"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ã®íÙùÿÿÿÿ
+_
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(…¢ƒÓ
+i
+java:S1192z"SDefine a constant instead of duplicating this literal "redirect:/userList" 3 times.(×âŒñ
+k	java:S117w"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—¶àƒûÿÿÿÿ
+k	java:S117x"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãˆøÿÿÿÿ
+l	java:S117“"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—¶àƒûÿÿÿÿ
+l	java:S117”"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãˆøÿÿÿÿ

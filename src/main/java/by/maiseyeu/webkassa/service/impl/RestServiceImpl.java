@@ -95,7 +95,19 @@ public class RestServiceImpl implements RestServiceDAO {
 
 
     @Override
+    @Transactional
     public Rest getRestByCurrencyAndWorkshift(Currency currency, Workshift workshift) {
-        return restRepository.getRestByCurrencyAndWorkshift(currency,workshift);
+        return restRepository.getRestByCurrencyAndWorkshift(currency,workshift).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public Rest saveAndReturnObj(Rest rest) {
+        return restRepository.save(rest);
+    }
+
+    @Override
+    public Rest getRestByCurrency(Currency currency) {
+        return restRepository.getRestByCurrency(currency).orElse(null);
     }
 }
