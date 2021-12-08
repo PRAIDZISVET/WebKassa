@@ -1,19 +1,14 @@
 package by.maiseyeu.webkassa.service.impl;
 
 import by.maiseyeu.webkassa.model.User;
-import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.model.Workshift;
-import by.maiseyeu.webkassa.repository.BaseDAO;
 import by.maiseyeu.webkassa.repository.WorkshiftRepository;
-import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.WorkhiftServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service("workshiftService")
 public class WorkshiftServiceImpl implements WorkhiftServiceDAO {

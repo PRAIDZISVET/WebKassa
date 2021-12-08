@@ -1,12 +1,9 @@
 package by.maiseyeu.webkassa.service.impl;
 
 import by.maiseyeu.webkassa.model.Currency;
-import by.maiseyeu.webkassa.repository.BaseDAO;
 import by.maiseyeu.webkassa.repository.CurrencyRepository;
 import by.maiseyeu.webkassa.service.CurrencyServiceDAO;
-import by.maiseyeu.webkassa.service.ServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

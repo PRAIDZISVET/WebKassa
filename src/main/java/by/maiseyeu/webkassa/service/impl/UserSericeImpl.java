@@ -1,13 +1,9 @@
 package by.maiseyeu.webkassa.service.impl;
 
 import by.maiseyeu.webkassa.model.User;
-import by.maiseyeu.webkassa.repository.UserDAO;
 import by.maiseyeu.webkassa.repository.UserRepository;
-import by.maiseyeu.webkassa.repository.impl.UserDAOImpl;
-import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.UserServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

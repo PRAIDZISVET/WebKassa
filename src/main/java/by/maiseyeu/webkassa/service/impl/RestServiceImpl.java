@@ -2,15 +2,10 @@ package by.maiseyeu.webkassa.service.impl;
 
 import by.maiseyeu.webkassa.model.Currency;
 import by.maiseyeu.webkassa.model.Rest;
-import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.model.Workshift;
-import by.maiseyeu.webkassa.repository.BaseDAO;
-import by.maiseyeu.webkassa.repository.RateRepository;
 import by.maiseyeu.webkassa.repository.RestRepository;
 import by.maiseyeu.webkassa.service.RestServiceDAO;
-import by.maiseyeu.webkassa.service.ServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -84,7 +79,8 @@ public class RestServiceImpl implements RestServiceDAO {
     @Override
     @Transactional
     public Rest getById(Long id) {
-        return restRepository.getById(id);
+
+        return restRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -110,4 +106,5 @@ public class RestServiceImpl implements RestServiceDAO {
     public Rest getRestByCurrency(Currency currency) {
         return restRepository.getRestByCurrency(currency).orElse(null);
     }
+
 }

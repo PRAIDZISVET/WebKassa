@@ -103,22 +103,22 @@ public class ReceiptController {
 //        Receipt receipt = new Receipt();
         ModelAndView modelAndView = new ModelAndView();
         Workshift workshift = (Workshift) session.getAttribute("workshift");
-        if (workshift==null){
+        if (workshift == null) {
             String message = "You can`t do opers! The workshift is not opened!";
             modelAndView.setViewName("redirect:/cashier");
             modelAndView.addObject("message", message);
         } else {
-        List<Currency> currlist = currencyService.getAll();
-        Oper oper = new Oper();
-        oper.setId(operId);
-        oper.setName(operName);
-        //      receipt.setOper(operService.getById(operId));
-        //       Rate rate = rateService.getById(id);
-        modelAndView.setViewName("oper/receiptpage");
-        //       modelAndView.addObject("receipt", receipt);
-        ////       modelAndView.addObject("operId",operId);
-        modelAndView.addObject("oper", oper);
-        modelAndView.addObject("currList", currlist);
+            List<Currency> currlist = currencyService.getAll();
+            Oper oper = new Oper();
+            oper.setId(operId);
+            oper.setName(operName);
+            //      receipt.setOper(operService.getById(operId));
+            //       Rate rate = rateService.getById(id);
+            modelAndView.setViewName("oper/receiptpage");
+            //       modelAndView.addObject("receipt", receipt);
+            ////       modelAndView.addObject("operId",operId);
+            modelAndView.addObject("oper", oper);
+            modelAndView.addObject("currList", currlist);
         }
 //        modelAndView.addObject("rate",rate);
         return modelAndView;
@@ -139,29 +139,48 @@ public class ReceiptController {
         Currency currIn; //= new Currency();
         Currency currOut; //= new Currency();
         Rate rate; //= new Rate();
-        if (oper.isIncom()) {
-            if (oper.getId() == 3) {
-                currIn = currencyService.getById(currId);
-                currOut = currencyService.getById(currEqId);
+        if (oper.isClient()) {
+            if (oper.isIncom()) {
+                if (oper.getId() == 3) {
+                    currIn = currencyService.getById(currId);
+                    currOut = currencyService.getById(currEqId);
+                } else {
+                    currIn = currencyService.getById(currId);
+                    currOut = currencyService.getCurrencyByIso("BYN");
+                }
+                rate = rateService.getRateByCurrInIsAndCurrOutIs(currIn, currOut);
+                receipt.setSumIn(sum);
+                receipt.setSumOut(calcSumOut(sum, rate));
             } else {
-                currIn = currencyService.getById(currId);
-                currOut = currencyService.getCurrencyByIso("BYN");
+                currIn = currencyService.getCurrencyByIso("BYN");
+                currOut = currencyService.getById(currId);
+                rate = rateService.getRateByCurrInIsAndCurrOutIs(currIn, currOut);
+                receipt.setSumIn(calcSumOut(sum, rate));
+                receipt.setSumOut(sum);
             }
-            rate = rateService.getRateByCurrInIsAndCurrOutIs(currIn, currOut);
-            receipt.setSumIn(sum);
-            receipt.setSumOut(calcSumOut(sum, rate));
         } else {
-            currIn = currencyService.getCurrencyByIso("BYN");
-            currOut = currencyService.getById(currId);
-            rate = rateService.getRateByCurrInIsAndCurrOutIs(currIn, currOut);
-            receipt.setSumIn(calcSumOut(sum, rate));
-            receipt.setSumOut(sum);
+            rate = new Rate();
+            if (oper.isIncom()) {
+                currIn = currencyService.getById(currId);
+                currOut = null;
+                rate.setCurrIn(currIn);
+                receipt.setSumIn(sum);
+                receipt.setSumOut(BigDecimal.ZERO);
+            } else {
+                currIn = null;
+                currOut = currencyService.getById(currId);
+                rate.setCurrOut(currOut);
+                receipt.setSumIn(BigDecimal.ZERO);
+                receipt.setSumOut(sum);
+            }
+            receipt.setRate(rate);
         }
+
         //       User user = (User) session.getAttribute("user");
 //        Rate rate = rateService.getRateByCurrInIsAndCurrOutIs(currIn,currOut);
 
         Workshift workshift = (Workshift) session.getAttribute("workshift");
-        if (isEnoughRest(currOut, workshift, receipt.getSumOut())) {
+        if ((!oper.isClient() && oper.isIncom()) || isEnoughRest(currOut, workshift, receipt.getSumOut())) {
             modelAndView.setViewName("oper/finalcalc");
             //       receipt.setOper(operService.getById(oper_id));
             receipt.setOper(oper);
@@ -183,11 +202,14 @@ public class ReceiptController {
     public ModelAndView getFinalCalcPage(@ModelAttribute(value = "receipt") Receipt receipt) {
         //       Rate rate = rateService.getById(id);
         ModelAndView modelAndView = new ModelAndView();
-        Rate rate = rateService.getById(receipt.getRate().getId());
+        if (receipt.getOper().isClient()){
+            Rate rate = rateService.getById(receipt.getRate().getId());
+            receipt.setRate(rate);
+        }
         Oper oper = operService.getById(receipt.getOper().getId());
         Workshift workshift = workshiftService.getById(receipt.getWorkshift().getId());
 //        Rate rate = rateService.getRateByCurrInIsAndCurrOutIs(currIn,currOut);
-        receipt.setRate(rate);
+//        receipt.setRate(rate);
         receipt.setOper(oper);
         receipt.setWorkshift(workshift);
         receipt.setDateTime(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
@@ -259,21 +281,21 @@ public class ReceiptController {
         Rest rest = new Rest();
         Rest currentRestToPlusByWorkshift = restService.getRestByCurrencyAndWorkshift(currIn, workshift);
         Rest currentRestToPlusByCurr = restService.getRestByCurrency(currIn);
-        if (currentRestToPlusByWorkshift==null){
-            if (currentRestToPlusByCurr==null){
+        if (currentRestToPlusByWorkshift == null) {
+            if (currentRestToPlusByCurr == null) {
                 currentRestToPlusByWorkshift = rest;
                 currentRestToPlusByWorkshift.setWorkshift(workshift);
                 currentRestToPlusByWorkshift.setCurrency(currIn);
                 currentRestToPlusByWorkshift = restService.saveAndReturnObj(currentRestToPlusByWorkshift);
             } else {
-                currentRestToPlusByWorkshift=currentRestToPlusByCurr;
+                currentRestToPlusByWorkshift = currentRestToPlusByCurr;
                 currentRestToPlusByWorkshift.setWorkshift(workshift);
             }
         }
         Rest currentRestToMinusByWorkshift = restService.getRestByCurrencyAndWorkshift(currOut, workshift);
         Rest currentRestToMinusByCurr = restService.getRestByCurrency(currOut);
-        if (currentRestToMinusByWorkshift==null){
-            if (currentRestToMinusByCurr==null){
+        if (currentRestToMinusByWorkshift == null) {
+            if (currentRestToMinusByCurr == null) {
                 currentRestToMinusByWorkshift = rest;
                 currentRestToMinusByWorkshift.setWorkshift(workshift);
                 currentRestToMinusByWorkshift.setCurrency(currOut);
@@ -283,10 +305,10 @@ public class ReceiptController {
                 currentRestToMinusByWorkshift.setWorkshift(workshift);
             }
         }
-        if (currentRestToPlusByWorkshift.getSum()==null){
+        if (currentRestToPlusByWorkshift.getSum() == null) {
             currentRestToPlusByWorkshift.setSum(BigDecimal.valueOf(0));
         }
-        if (currentRestToMinusByWorkshift.getSum()==null){
+        if (currentRestToMinusByWorkshift.getSum() == null) {
             currentRestToMinusByWorkshift.setSum(BigDecimal.valueOf(0));
         }
         currentRestToPlusByWorkshift.setSum(currentRestToPlusByWorkshift.getSum().add(receipt.getSumIn()));
@@ -300,4 +322,18 @@ public class ReceiptController {
 //        Receipt receipt = new Receipt();
 //        modelAndView.addObject("receipt", receipt);
 //    }
+    //TODO: dto
+    //TODO: UI: bootstrap, Thymeleaf
+    //TODO: Localization
+    //TODO: Sort
+    //TODO: Paging
+    //TODO: Sucsessfull receipt message
+    //TODO: Rewrite rests when wsh open
+    //TODO: Vaidation
+    //TODO: Tests
+    //TODO: Logs
+    //TODO: Opers IN/OUT finished
+
+
+
 }

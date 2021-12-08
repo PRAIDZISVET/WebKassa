@@ -2,11 +2,9 @@ package by.maiseyeu.webkassa.service.impl;
 
 import by.maiseyeu.webkassa.model.Currency;
 import by.maiseyeu.webkassa.model.Rate;
-import by.maiseyeu.webkassa.repository.RateDAO;
 import by.maiseyeu.webkassa.repository.RateRepository;
 import by.maiseyeu.webkassa.service.RateServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

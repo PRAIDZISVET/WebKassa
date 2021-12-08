@@ -15,6 +15,10 @@ V	java:S125g"<This block of commented-out lines of code should be removed.(­½Ë
 V	java:S125s"<This block of commented-out lines of code should be removed.(ÑŽ»ºþÿÿÿÿ
 V	java:S125v"<This block of commented-out lines of code should be removed.(©Šþþÿÿÿÿ
 V	java:S125{"<This block of commented-out lines of code should be removed.(äâéœùÿÿÿÿ
+n
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ùÊåßÿÿÿÿÿ
+Q
+java:S1854ª":Remove this useless assignment to local variable "currIn".(Ý‘Å¢
 \
 java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(ùÊåßÿÿÿÿÿ
 f
@@ -23,33 +27,55 @@ R	java:S125ˆ"<This block of commented-out lines of code should be removed.(ë¶
 W	java:S125‹"<This block of commented-out lines of code should be removed.(¶Áó›øÿÿÿÿ
 W	java:S125Œ"<This block of commented-out lines of code should be removed.(ËÕ¾üÿÿÿÿ
 R	java:S125"<This block of commented-out lines of code should be removed.(½áÒé
-W	java:S125 "<This block of commented-out lines of code should be removed.(äò®¡ÿÿÿÿÿ
-R	java:S125¦"<This block of commented-out lines of code should be removed.(°Š…Ñ
-W	java:S125ª"<This block of commented-out lines of code should be removed.(ÒÝÚÖÿÿÿÿÿ
-W	java:S125­"<This block of commented-out lines of code should be removed.(ôß±ÿýÿÿÿÿ
-R	java:S125±"<This block of commented-out lines of code should be removed.(þ¢Õ±
+W	java:S125³"<This block of commented-out lines of code should be removed.(äò®¡ÿÿÿÿÿ
+R	java:S125¹"<This block of commented-out lines of code should be removed.(°Š…Ñ
+W	java:S125½"<This block of commented-out lines of code should be removed.(ÒÝÚÖÿÿÿÿÿ
+W	java:S125À"<This block of commented-out lines of code should be removed.(ôß±ÿýÿÿÿÿ
+R	java:S125Ä"<This block of commented-out lines of code should be removed.(þ¢Õ±
 \
-java:S4684·"@Replace this persistent entity with a simple POJO or DTO object.(®»ðšþÿÿÿÿ
+java:S4684Ê"@Replace this persistent entity with a simple POJO or DTO object.(®»ðšþÿÿÿÿ
 f
-java:S4488¶"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(á˜‡¿øÿÿÿÿ
-W	java:S125¸"<This block of commented-out lines of code should be removed.( ®ß‘þÿÿÿÿ
-R	java:S125½"<This block of commented-out lines of code should be removed.(ø¦‚
-W	java:S125Ã"<This block of commented-out lines of code should be removed.(©Šþþÿÿÿÿ
+java:S4488É"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(á˜‡¿øÿÿÿÿ
+W	java:S125Ë"<This block of commented-out lines of code should be removed.( ®ß‘þÿÿÿÿ
+R	java:S125Ó"<This block of commented-out lines of code should be removed.(ø¦‚
+W	java:S125Ù"<This block of commented-out lines of code should be removed.(©Šþþÿÿÿÿ
 _
-java:S4488Í"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ñ¯‡¬
+java:S4488ã"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ñ¯‡¬
 W
-java:S4684×"@Replace this persistent entity with a simple POJO or DTO object.(Ž»øÞ
+java:S4684í"@Replace this persistent entity with a simple POJO or DTO object.(Ž»øÞ
 a
-java:S4488Ö"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Šµ†Í
+java:S4488ì"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Šµ†Í
 d
-java:S4488å"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ó¼ñìûÿÿÿÿ
+java:S4488û"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ó¼ñìûÿÿÿÿ
 8
-java:S1116ê"Remove this empty statement.(Åñ­õþÿÿÿÿ
-W	java:S125«"<This block of commented-out lines of code should be removed.(Ü×ÜÚüÿÿÿÿ
+java:S1116€"Remove this empty statement.(Åñ­õþÿÿÿÿ
+W	java:S125Á"<This block of commented-out lines of code should be removed.(Ü×ÜÚüÿÿÿÿ
+N
+java:S1135Å"2Complete the task associated to this TODO comment.(÷òÃ®ÿÿÿÿÿ
+N
+java:S1135Æ"2Complete the task associated to this TODO comment.(©Ÿ—Òøÿÿÿÿ
+N
+java:S1135Ç"2Complete the task associated to this TODO comment.(É†žÃúÿÿÿÿ
+I
+java:S1135È"2Complete the task associated to this TODO comment.(‚¶‹Ö
+N
+java:S1135É"2Complete the task associated to this TODO comment.(éß‚úýÿÿÿÿ
+I
+java:S1135Ê"2Complete the task associated to this TODO comment.(šñÔŠ
+I
+java:S1135Ë"2Complete the task associated to this TODO comment.(ß¸—é
+H
+java:S1135Ì"2Complete the task associated to this TODO comment.(‚›¨#
+H
+java:S1135Í"2Complete the task associated to this TODO comment.(éæë
+N
+java:S1135Î"2Complete the task associated to this TODO comment.(ºœ”¾øÿÿÿÿ
+P
+java:S1135Ï"2Complete the task associated to this TODO comment.(ˆ–Òˆ8©Íú½Ù/
 \
-java:S1128"?Remove this unused import 'org.jetbrains.annotations.Contract'.(º€»“8Ï¦úÜÖ/
+java:S1128"?Remove this unused import 'org.jetbrains.annotations.Contract'.(º€»“8Ã¿¯½Ù/
 `
-java:S1128">Remove this unused import 'org.jetbrains.annotations.NotNull'.(éš®ïøÿÿÿÿ8Ï¦úÜÖ/
+java:S1128">Remove this unused import 'org.jetbrains.annotations.NotNull'.(éš®ïøÿÿÿÿ8Ä¿¯½Ù/
 h
 java:S1192l"RDefine a constant instead of duplicating this literal "redirect:/cashier" 3 times.(Šž¨Š
 m
@@ -57,6 +83,6 @@ java:S1192Z"WDefine a constant instead of duplicating this literal "redirect:/r
 k	java:S117V"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„”³äøÿÿÿÿ
 f	java:S117W"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëöïô
 f	java:S117X"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ§ÿ®
-l	java:S117Ø"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„”³äøÿÿÿÿ
-g	java:S117Ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëöïô
-g	java:S117Ú"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ§ÿ®
+l	java:S117î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„”³äøÿÿÿÿ
+g	java:S117ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëöïô
+g	java:S117ð"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ§ÿ®

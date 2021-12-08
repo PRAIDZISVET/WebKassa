@@ -1,0 +1,16 @@
+
+V	java:S125"<This block of commented-out lines of code should be removed.(«œı»ıÿÿÿÿ
+Q	java:S1256"<This block of commented-out lines of code should be removed.(Ê¾Ş
+P	java:S125:"<This block of commented-out lines of code should be removed.(§µøt
+Q	java:S125E"<This block of commented-out lines of code should be removed.(¤óªĞ
+Q	java:S125R"<This block of commented-out lines of code should be removed.(Èí¸Ò
+^
+java:S1128"HRemove this unused import 'by.maiseyeu.webkassa.service.UserServiceDAO'.(Úï”ú
+—
+java:S1128	"€Remove this unused import 'org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder'.(£ØÓ‰
+h
+java:S1128"MRemove this unused import 'org.springframework.security.web.csrf.CsrfFilter'.(—¼ş´ÿÿÿÿÿ
+v
+java:S1128"`Remove this unused import 'org.springframework.security.web.util.matcher.AntPathRequestMatcher'.(¼¸ö
+n
+java:S1128"SRemove this unused import 'org.springframework.web.filter.CharacterEncodingFilter'.(¸‰²ıüÿÿÿÿ
