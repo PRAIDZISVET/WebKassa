@@ -1,8 +1,11 @@
 package by.maiseyeu.webkassa.controller;
 
+import by.maiseyeu.webkassa.model.Rest;
 import by.maiseyeu.webkassa.model.User;
 import by.maiseyeu.webkassa.model.Workplace;
 import by.maiseyeu.webkassa.model.Workshift;
+import by.maiseyeu.webkassa.service.RateServiceDAO;
+import by.maiseyeu.webkassa.service.RestServiceDAO;
 import by.maiseyeu.webkassa.service.ServiceDAO;
 import by.maiseyeu.webkassa.service.WorkhiftServiceDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,7 @@ public class WorkshiftController {
     private WorkhiftServiceDAO workshiftService;
     private ServiceDAO<Long, User> userService;
     private ServiceDAO<Long, Workplace> workplaceService;
+    private RestServiceDAO restService;
 
     @Autowired
     @Qualifier("workshiftService")
@@ -42,6 +46,12 @@ public class WorkshiftController {
     @Qualifier("workplaceService")
     public void setWorkplaceService(ServiceDAO<Long, Workplace> workplaceService) {
         this.workplaceService = workplaceService;
+    }
+
+    @Autowired
+    @Qualifier("restService")
+    public void setRestService(RestServiceDAO restService) {
+        this.restService = restService;
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -86,6 +96,12 @@ public class WorkshiftController {
             if (checkWorkshift==null){
                 Workshift workshiftDB = workshiftService.saveAndReturnObj(workshift);
                 modelAndView.addObject("workshift",workshiftDB);
+//                Long prevWorkshiftId = workshiftDB.getId() - 1;
+                List<Rest> restsList = restService.getAll();
+                for (Rest item: restsList) {
+                    item.setWorkshift(workshiftDB);
+                    restService.update(item);
+                }
             } else {
                 String message = "Найдена открытая смена № " + checkWorkshift.getId()+ " ,открыта " + checkWorkshift.getOpenDateTime();
                 modelAndView.addObject("message", message);

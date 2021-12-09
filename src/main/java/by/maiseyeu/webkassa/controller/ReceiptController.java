@@ -202,12 +202,22 @@ public class ReceiptController {
     public ModelAndView getFinalCalcPage(@ModelAttribute(value = "receipt") Receipt receipt) {
         //       Rate rate = rateService.getById(id);
         ModelAndView modelAndView = new ModelAndView();
-        if (receipt.getOper().isClient()){
-            Rate rate = rateService.getById(receipt.getRate().getId());
-            receipt.setRate(rate);
-        }
         Oper oper = operService.getById(receipt.getOper().getId());
         Workshift workshift = workshiftService.getById(receipt.getWorkshift().getId());
+        if (oper.isClient()){
+            Rate rate = rateService.getById(receipt.getRate().getId());
+            receipt.setRate(rate);
+        } else {
+            Currency currency;
+            if (oper.isIncom()) {
+                currency = currencyService.getCurrencyByName(receipt.getRate().getCurrIn().getName());
+                receipt.getRate().setCurrIn(currency);
+            } else {
+                currency = currencyService.getCurrencyByName(receipt.getRate().getCurrOut().getName());
+                receipt.getRate().setCurrOut(currency);
+            }
+            receipt.getRate().setId(1L);
+        }
 //        Rate rate = rateService.getRateByCurrInIsAndCurrOutIs(currIn,currOut);
 //        receipt.setRate(rate);
         receipt.setOper(oper);
@@ -278,43 +288,67 @@ public class ReceiptController {
         Currency currIn = receipt.getRate().getCurrIn();
         Currency currOut = receipt.getRate().getCurrOut();
         Workshift workshift = receipt.getWorkshift();
-        Rest rest = new Rest();
+//        Rest rest = new Rest();
         Rest currentRestToPlusByWorkshift = restService.getRestByCurrencyAndWorkshift(currIn, workshift);
-        Rest currentRestToPlusByCurr = restService.getRestByCurrency(currIn);
-        if (currentRestToPlusByWorkshift == null) {
-            if (currentRestToPlusByCurr == null) {
-                currentRestToPlusByWorkshift = rest;
-                currentRestToPlusByWorkshift.setWorkshift(workshift);
-                currentRestToPlusByWorkshift.setCurrency(currIn);
-                currentRestToPlusByWorkshift = restService.saveAndReturnObj(currentRestToPlusByWorkshift);
-            } else {
-                currentRestToPlusByWorkshift = currentRestToPlusByCurr;
-                currentRestToPlusByWorkshift.setWorkshift(workshift);
-            }
-        }
+//        Rest currentRestToPlusByCurr = restService.getRestByCurrency(currIn);
         Rest currentRestToMinusByWorkshift = restService.getRestByCurrencyAndWorkshift(currOut, workshift);
-        Rest currentRestToMinusByCurr = restService.getRestByCurrency(currOut);
-        if (currentRestToMinusByWorkshift == null) {
-            if (currentRestToMinusByCurr == null) {
-                currentRestToMinusByWorkshift = rest;
-                currentRestToMinusByWorkshift.setWorkshift(workshift);
-                currentRestToMinusByWorkshift.setCurrency(currOut);
-                currentRestToMinusByWorkshift = restService.saveAndReturnObj(currentRestToMinusByWorkshift);
+//        Rest currentRestToMinusByCurr = restService.getRestByCurrency(currOut);
+        if (receipt.getOper().isClient() || (!receipt.getOper().isClient() && receipt.getOper().isIncom())) {
+//            if (currentRestToPlusByWorkshift == null) {
+//                if (currentRestToPlusByCurr == null) {
+//                    currentRestToPlusByWorkshift = rest;
+//                    currentRestToPlusByWorkshift.setWorkshift(workshift);
+//                    currentRestToPlusByWorkshift.setCurrency(currIn);
+//                    currentRestToPlusByWorkshift = restService.saveAndReturnObj(currentRestToPlusByWorkshift);
+//                } else {
+//                    currentRestToPlusByWorkshift = currentRestToPlusByCurr;
+//                    currentRestToPlusByWorkshift.setWorkshift(workshift);
+//                }
+//            }
+            currentRestToPlusByWorkshift = findCurrentRestByWorkshift(currIn,workshift);
+            if (currentRestToPlusByWorkshift.getSum() == null) {
+                currentRestToPlusByWorkshift.setSum(BigDecimal.valueOf(0));
+            }
+            currentRestToPlusByWorkshift.setSum(currentRestToPlusByWorkshift.getSum().add(receipt.getSumIn()));
+            restService.update(currentRestToPlusByWorkshift);
+        }
+        if (receipt.getOper().isClient() || (!receipt.getOper().isClient() && !receipt.getOper().isIncom())) {
+//            if (currentRestToMinusByWorkshift == null) {
+//                if (currentRestToMinusByCurr == null) {
+//                    currentRestToMinusByWorkshift = rest;
+//                    currentRestToMinusByWorkshift.setWorkshift(workshift);
+//                    currentRestToMinusByWorkshift.setCurrency(currOut);
+//                    currentRestToMinusByWorkshift = restService.saveAndReturnObj(currentRestToMinusByWorkshift);
+//                } else {
+//                    currentRestToMinusByWorkshift = currentRestToMinusByCurr;
+//                    currentRestToMinusByWorkshift.setWorkshift(workshift);
+//                }
+//            }
+            currentRestToMinusByWorkshift = findCurrentRestByWorkshift(currOut,workshift);
+            if (currentRestToMinusByWorkshift.getSum() == null) {
+                currentRestToMinusByWorkshift.setSum(BigDecimal.valueOf(0));
+            }
+            currentRestToMinusByWorkshift.setSum(currentRestToMinusByWorkshift.getSum().subtract(receipt.getSumOut()));
+            restService.update(currentRestToMinusByWorkshift);
+        }
+    }
+
+    private Rest findCurrentRestByWorkshift (Currency currency, Workshift workshift) {
+        Rest rest = new Rest();
+        Rest currentRestByWorkshift = restService.getRestByCurrencyAndWorkshift(currency, workshift);
+        Rest currentRestByCurr = restService.getRestByCurrency(currency);
+        if (currentRestByWorkshift == null) {
+            if (currentRestByCurr == null) {
+                currentRestByWorkshift = rest;
+                currentRestByWorkshift.setWorkshift(workshift);
+                currentRestByWorkshift.setCurrency(currency);
+                currentRestByWorkshift = restService.saveAndReturnObj(currentRestByWorkshift);
             } else {
-                currentRestToMinusByWorkshift = currentRestToMinusByCurr;
-                currentRestToMinusByWorkshift.setWorkshift(workshift);
+                currentRestByWorkshift = currentRestByCurr;
+                currentRestByWorkshift.setWorkshift(workshift);
             }
         }
-        if (currentRestToPlusByWorkshift.getSum() == null) {
-            currentRestToPlusByWorkshift.setSum(BigDecimal.valueOf(0));
-        }
-        if (currentRestToMinusByWorkshift.getSum() == null) {
-            currentRestToMinusByWorkshift.setSum(BigDecimal.valueOf(0));
-        }
-        currentRestToPlusByWorkshift.setSum(currentRestToPlusByWorkshift.getSum().add(receipt.getSumIn()));
-        currentRestToMinusByWorkshift.setSum(currentRestToMinusByWorkshift.getSum().subtract(receipt.getSumOut()));
-        restService.update(currentRestToPlusByWorkshift);
-        restService.update(currentRestToMinusByWorkshift);
+        return currentRestByWorkshift;
     }
 
 //    @ModelAttribute
@@ -332,7 +366,7 @@ public class ReceiptController {
     //TODO: Vaidation
     //TODO: Tests
     //TODO: Logs
-    //TODO: Opers IN/OUT finished
+    //TODO: Контроль: обязательная инкассация при закрытии смены ???
 
 
 

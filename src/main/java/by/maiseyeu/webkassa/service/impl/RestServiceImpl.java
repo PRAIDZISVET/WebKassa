@@ -107,4 +107,9 @@ public class RestServiceImpl implements RestServiceDAO {
         return restRepository.getRestByCurrency(currency).orElse(null);
     }
 
+    @Override
+    public List<Rest> findAllByWorkshift(Workshift workshift) {
+        return restRepository.findAllByWorkshift(workshift);
+    }
+
 }
